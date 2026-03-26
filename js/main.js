@@ -356,20 +356,34 @@ function displayPastProjections() {
 // Animation de la route au scroll pour la page voyage
 function setupVoyageAnimations() {
     const routeFill = document.querySelector('.route-fill');
+    const routeSvg = document.querySelector('.route-svg');
     
-    if (!routeFill) return;
+    if (!routeFill || !routeSvg) return;
     
-    // Observer pour l'animation de la route
-    const routeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                routeFill.classList.add('visible');
-                routeObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
+    // Animation progressive de la route au scroll
+    const handleRouteScroll = () => {
+        const rect = routeSvg.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Distance entre le centre de l'écran et le SVG
+        const elementCenter = rect.top + rect.height / 2;
+        const screenCenter = windowHeight / 2;
+        
+        // Calculer le pourcentage: 0 si au bas, 1 si au haut
+        const triggerDistance = windowHeight;
+        let progress = (triggerDistance - (elementCenter - screenCenter)) / triggerDistance;
+        progress = Math.max(0, Math.min(1, progress));
+        
+        // Appliquer l'animation : 1500 est la longueur totale de la ligne
+        const dashOffset = 1500 * (1 - progress);
+        routeFill.style.strokeDashoffset = dashOffset;
+        
+        console.log('Progress:', progress, 'DashOffset:', dashOffset);
+    };
     
-    routeObserver.observe(routeFill);
+    window.addEventListener('scroll', handleRouteScroll, { passive: true });
+    window.addEventListener('resize', handleRouteScroll, { passive: true });
+    handleRouteScroll(); // Appel initial
     
     // Animation des points d'étape au scroll
     const waypoints = document.querySelectorAll('.waypoint');
