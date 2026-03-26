@@ -1,70 +1,83 @@
 // Données des régions pour la carte de France
-// Coordonnées des zones cliquables (à ajuster selon votre image)
+// IMPORTANT: Ces coordonnées sont pour une image de référence
+// Utilisez la fonction captureCoordinates() pour obtenir les bonnes coordonnées
 
 const franceRegions = {
     'hauts-de-france': {
         name: 'Hauts-de-France',
-        coords: [450, 100, 550, 150], // [x1, y1, x2, y2] pour rectangle
-        shape: 'rect'
+        coords: [150, 80, 280, 150], // [x1, y1, x2, y2] en pixels (image originale)
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'normandie': {
         name: 'Normandie',
-        coords: [350, 120, 440, 150],
-        shape: 'rect'
+        coords: [80, 100, 180, 160],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'bretagne': {
         name: 'Bretagne',
-        coords: [250, 150, 330, 200],
-        shape: 'rect'
+        coords: [40, 130, 130, 200],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'pays-de-la-loire': {
         name: 'Pays de la Loire',
-        coords: [300, 200, 380, 260],
-        shape: 'rect'
+        coords: [100, 170, 190, 240],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'centre': {
         name: 'Centre-Val de Loire',
-        coords: [380, 180, 470, 240],
-        shape: 'rect'
+        coords: [160, 150, 260, 220],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'ile-de-france': {
         name: 'Île-de-France',
-        coords: [480, 150, 540, 190],
-        shape: 'rect'
+        coords: [220, 110, 290, 160],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'grand-est': {
         name: 'Grand Est',
-        coords: [550, 140, 650, 200],
-        shape: 'rect'
+        coords: [280, 100, 390, 170],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'bourgogne': {
         name: 'Bourgogne-Franche-Comté',
-        coords: [470, 220, 560, 280],
-        shape: 'rect'
+        coords: [240, 170, 340, 240],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'auvergne': {
         name: 'Auvergne-Rhône-Alpes',
-        coords: [420, 280, 500, 340],
-        shape: 'rect'
+        coords: [210, 220, 320, 300],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'nouvelle-aquitaine': {
         name: 'Nouvelle-Aquitaine',
-        coords: [250, 300, 370, 380],
-        shape: 'rect'
+        coords: [70, 220, 180, 320],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'occitanie': {
         name: 'Occitanie',
-        coords: [370, 360, 480, 430],
-        shape: 'rect'
+        coords: [150, 280, 270, 370],
+        shape: 'rect',
+        color: '#9B8E6E'
     },
     'paca': {
         name: 'Provence-Alpes-Côte d\'Azur',
-        coords: [500, 380, 580, 440],
-        shape: 'rect'
+        coords: [280, 280, 380, 360],
+        shape: 'rect',
+        color: '#9B8E6E'
     }
 };
 
-// Données des projections
+// Le reste des données reste identique
 const projectionsData = {
     upcoming: [
         {

@@ -8,6 +8,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Styles supplémentaires pour la carte */
+        .map-container {
+            position: relative;
+            margin: 40px 0;
+            text-align: center;
+            background-color: #F5F2EA;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .france-map-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .regions-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .region-hotspot {
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -49,18 +86,14 @@
         <section class="map-section">
             <div class="container">
                 <h2>Carte interactive des projections</h2>
-                <p class="section-intro">Cliquez sur une région pour découvrir les projections à venir.</p>
+                <p class="section-intro">👆 Passez votre souris sur une région pour voir le nombre de projections, cliquez pour découvrir les détails.</p>
                 
                 <div class="map-container">
                     <img src="images/france.png" 
                          alt="Carte de France interactive" 
                          id="france-map-image"
                          class="france-map-image"
-                         usemap="#france-map"
                          style="width: 100%; height: auto;">
-                    <map name="france-map" id="france-map">
-                        <!-- Les zones seront générées dynamiquement par JavaScript -->
-                    </map>
                 </div>
                 
                 <div id="projections-list" class="projections-list-container">
@@ -112,6 +145,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/france-map-data.js"></script>
-    <script src="js/france-map.js"></script>
+    <script src="js/france-map-advanced.js"></script>
 </body>
 </html>
