@@ -1,118 +1,91 @@
-/**
- * Configuration EmailJS
- * 
- * Pour utiliser ce formulaire, vous devez :
- * 
- * 1. Créer un compte gratuit sur https://www.emailjs.com/
- * 2. Créer un service email (Gmail, Outlook, etc.)
- * 3. Créer un template d'email avec les variables : {{name}}, {{email}}, {{phone}}, {{subject}}, {{message}}
- * 4. Récupérer votre USER_ID, SERVICE_ID et TEMPLATE_ID
- * 
- * Pour reCAPTCHA :
- * 1. Aller sur https://www.google.com/recaptcha/admin
- * 2. Créer un site de type reCAPTCHA v3
- * 3. Récupérer votre SITE_KEY
- */
-
-// Configuration EmailJS - À REMPLACER PAR VOS VRAIES CLÉS
+// Configuration EmailJS
 const EMAILJS_CONFIG = {
-    PUBLIC_KEY: 'TmXcigb19AaGPYHvR',     // À remplacer
-    SERVICE_ID: 'service_1uxc8qr',     // À remplacer
-    TEMPLATE_ID: 'template_b88s4br'    // À remplacer
+    PUBLIC_KEY: 'TmXcigb19AaGPYHvR',
+    SERVICE_ID: 'service_1uxc8qr',
+    TEMPLATE_ID: 'template_b88s4br'
 };
 
-// Configuration reCAPTCHA v3 - À REMPLACER PAR VOTRE SITE KEY
-const RECAPTCHA_SITE_KEY = '6Lf_YJksAAAAAKCJAVMr4idy9VphT_Te24mlRzgQ'; // À remplacer
-
-// Initialisation
+// Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Formulaire chargé - Configuration en cours...');
+    console.log('🚀 Page contact chargée');
     
+    // Initialiser EmailJS
     emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
     console.log('✅ EmailJS initialisé');
     
-    setupContactForm();
-});
-
-function setupContactForm() {
+    // Récupérer le formulaire
     const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = submitBtn?.querySelector('.btn-text');
+    const btnLoader = submitBtn?.querySelector('.btn-loader');
     const formMessage = document.getElementById('formMessage');
     
     if (!form) {
-        console.error('Formulaire non trouvé !');
+        console.error('❌ Formulaire non trouvé !');
         return;
     }
     
-    console.log('✅ Formulaire trouvé');
+    console.log('✅ Formulaire trouvé, ajout de l\'écouteur');
     
+    // Écouter la soumission du formulaire
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         console.log('📨 Formulaire soumis');
         
-        // Récupération DIRECTE des valeurs avec getElementById
-        const nameField = document.getElementById('name');
-        const emailField = document.getElementById('email');
-        const phoneField = document.getElementById('phone');
-        const subjectField = document.getElementById('subject');
-        const messageField = document.getElementById('message');
+        // Récupérer les valeurs des champs
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value.trim();
         
-        // Afficher les éléments pour debug
-        console.log('Champs trouvés:', {
-            name: nameField ? 'OK' : 'NON TROUVÉ',
-            email: emailField ? 'OK' : 'NON TROUVÉ',
-            subject: subjectField ? 'OK' : 'NON TROUVÉ',
-            message: messageField ? 'OK' : 'NON TROUVÉ'
+        console.log('Valeurs récupérées:', {
+            name: name || '(vide)',
+            email: email || '(vide)',
+            subject: subject || '(vide)',
+            messageLength: message.length
         });
-        
-        const name = nameField ? nameField.value.trim() : '';
-        const email = emailField ? emailField.value.trim() : '';
-        const phone = phoneField ? phoneField.value.trim() : '';
-        const subject = subjectField ? subjectField.value : '';
-        const message = messageField ? messageField.value.trim() : '';
-        
-        console.log('Valeurs:', {name, email, subject, message: message.substring(0, 30)});
         
         // Validation
         if (!name) {
             showMessage('❌ Veuillez entrer votre nom.', 'error', formMessage);
-            if (nameField) nameField.focus();
+            document.getElementById('name').focus();
             return;
         }
         
         if (!email) {
             showMessage('❌ Veuillez entrer votre adresse email.', 'error', formMessage);
-            if (emailField) emailField.focus();
+            document.getElementById('email').focus();
             return;
         }
         
         if (!email.includes('@') || !email.includes('.')) {
-            showMessage('❌ Veuillez entrer une adresse email valide.', 'error', formMessage);
-            if (emailField) emailField.focus();
+            showMessage('❌ Veuillez entrer une adresse email valide (ex: nom@domaine.fr).', 'error', formMessage);
+            document.getElementById('email').focus();
             return;
         }
         
         if (!subject) {
             showMessage('❌ Veuillez sélectionner un objet.', 'error', formMessage);
-            if (subjectField) subjectField.focus();
+            document.getElementById('subject').focus();
             return;
         }
         
         if (!message) {
             showMessage('❌ Veuillez écrire votre message.', 'error', formMessage);
-            if (messageField) messageField.focus();
+            document.getElementById('message').focus();
             return;
         }
         
-        // Envoi
-        const submitBtn = form.querySelector('button[type="submit"]');
+        // Activer le loader
         if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.textContent = '⏳ Envoi en cours...';
+            if (btnText) btnText.style.display = 'none';
+            if (btnLoader) btnLoader.style.display = 'inline';
         }
         
         try {
-            console.log('📤 Envoi vers EmailJS...');
-            
+            // Préparer les données
             const templateParams = {
                 name: name,
                 email: email,
@@ -122,40 +95,58 @@ function setupContactForm() {
                 date: new Date().toLocaleString('fr-FR')
             };
             
+            console.log('📤 Envoi vers EmailJS...');
+            
+            // Envoyer l'email
             const response = await emailjs.send(
                 EMAILJS_CONFIG.SERVICE_ID,
                 EMAILJS_CONFIG.TEMPLATE_ID,
                 templateParams
             );
             
-            console.log('✅ Succès!', response);
+            console.log('✅ Email envoyé avec succès!', response);
             showMessage('✅ Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.', 'success', formMessage);
+            
+            // Réinitialiser le formulaire
             form.reset();
             
         } catch (error) {
-            console.error('❌ Erreur:', error);
-            let errorMsg = '❌ Erreur lors de l\'envoi. ';
+            console.error('❌ Erreur détaillée:', error);
+            
+            let errorMessage = '❌ Erreur lors de l\'envoi du message. ';
+            
             if (error.text) {
-                errorMsg += error.text;
+                errorMessage += error.text;
+                console.error('Détail EmailJS:', error.text);
             } else if (error.message) {
-                errorMsg += error.message;
+                errorMessage += error.message;
             }
-            showMessage(errorMsg, 'error', formMessage);
+            
+            showMessage(errorMessage, 'error', formMessage);
+            
         } finally {
+            // Réactiver le bouton
             if (submitBtn) {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Envoyer le message';
+                if (btnText) btnText.style.display = 'inline';
+                if (btnLoader) btnLoader.style.display = 'none';
             }
         }
     });
-}
+});
 
+// Fonction pour afficher les messages
 function showMessage(message, type, container) {
     if (!container) return;
+    
     container.innerHTML = message;
     container.className = `form-message ${type}`;
-    console.log(`Message (${type}):`, message);
+    console.log(`📢 Message affiché (${type}):`, message);
     
+    // Faire défiler jusqu'au message
+    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    
+    // Effacer après 8 secondes
     setTimeout(() => {
         if (container.innerHTML === message) {
             container.innerHTML = '';
@@ -164,7 +155,15 @@ function showMessage(message, type, container) {
     }, 8000);
 }
 
-// Test
-window.testEmailJS = function() {
+// Fonction de test pour la console
+window.testContactForm = function() {
+    console.log('=== TEST FORMULAIRE CONTACT ===');
     console.log('EmailJS Config:', EMAILJS_CONFIG);
+    console.log('Formulaire présent:', !!document.getElementById('contactForm'));
+    console.log('Champs:');
+    console.log('- name:', !!document.getElementById('name'));
+    console.log('- email:', !!document.getElementById('email'));
+    console.log('- subject:', !!document.getElementById('subject'));
+    console.log('- message:', !!document.getElementById('message'));
+    console.log('=== FIN TEST ===');
 };
