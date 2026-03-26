@@ -1110,29 +1110,32 @@ h3 {
 
 .projection-pin {
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.projection-pin:hover .pin-icon {
-    font-size: 28px !important;
-    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.3)) !important;
+.projection-pin:hover {
+    z-index: 22;
+}
+
+.projection-pin svg {
+    transition: all 0.3s ease;
 }
 
 .pin-tooltip {
     position: fixed;
-    background: rgba(44, 42, 38, 0.95);
+    background: linear-gradient(135deg, rgba(44, 42, 38, 0.98) 0%, rgba(30, 28, 24, 0.98) 100%);
     color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 0.85rem;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
     font-weight: 500;
     pointer-events: none;
     z-index: 1000;
     white-space: nowrap;
     opacity: 0;
     transition: opacity 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border: 1px solid rgba(155, 142, 110, 0.3);
 }
 
 /* Projections list */

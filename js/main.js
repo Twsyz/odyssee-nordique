@@ -146,53 +146,81 @@ function setupFranceMap() {
     
     // Coordonnées des régions (% de l'image)
     const regionCoordinates = {
-        'ile-de-france': { x: 45, y: 20 },
-        'hauts-de-france': { x: 40, y: 10 },
-        'normandie': { x: 25, y: 15 },
-        'bretagne': { x: 15, y: 25 },
-        'pays-de-la-loire': { x: 20, y: 35 },
-        'centre': { x: 35, y: 35 },
-        'grand-est': { x: 55, y: 15 },
-        'bourgogne': { x: 45, y: 40 },
-        'auvergne': { x: 40, y: 55 },
-        'nouvelle-aquitaine': { x: 20, y: 55 },
-        'occitanie': { x: 35, y: 65 },
-        'paca': { x: 65, y: 70 }
+        'ile-de-france': { x: 53, y: 30 },
+        'hauts-de-france': { x: 54, y: 19 },
+        'normandie': { x: 39, y: 27 },
+        'bretagne': { x: 20, y: 33 },
+        'pays-de-la-loire': { x: 35, y: 39 },
+        'centre': { x: 48, y: 42 },
+        'grand-est': { x: 72, y: 30 },
+        'bourgogne': { x: 67, y: 44 },
+        'auvergne': { x: 72, y: 59 },
+        'nouvelle-aquitaine': { x: 40, y: 62 },
+        'occitanie': { x: 53, y: 73 },
+        'paca': { x: 77, y: 75 }
     };
     
     // Créer les pins pour chaque région
     Object.keys(regionCoordinates).forEach(regionId => {
         const count = projectionsData.upcoming.filter(p => p.region === regionId).length;
+        const coords = regionCoordinates[regionId];
         
-        if (count > 0) {
-            const coords = regionCoordinates[regionId];
+        // Vérifier si le pin existe déjà
+        if (document.querySelector(`[data-region="${regionId}"]`)) return;
+        
+        const pin = document.createElement('div');
+        pin.className = 'projection-pin';
+        pin.style.position = 'absolute';
+        pin.style.left = coords.x + '%';
+        pin.style.top = coords.y + '%';
+        pin.style.width = '40px';
+        pin.style.height = '50px';
+        pin.style.transform = 'translate(-50%, -100%)';
+        pin.style.cursor = (count > 0) ? 'pointer' : 'default';
+        pin.style.zIndex = (count > 0) ? '21' : '10';
+        pin.style.opacity = (count > 0) ? '1' : '0.4';
+        pin.dataset.region = regionId;
+        pin.dataset.count = count;
             
-            // Vérifier si le pin existe déjà
-            if (document.querySelector(`[data-region="${regionId}"]`)) return;
+            // Créer le SVG du pin
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('viewBox', '0 0 40 50');
+            svg.setAttribute('width', '40');
+            svg.setAttribute('height', '50');
+            svg.style.width = '100%';
+            svg.style.height = '100%';
+            svg.style.filter = 'drop-shadow(0 2px 6px rgba(0,0,0,0.2))';
+            svg.style.transition = 'all 0.3s ease';
+            svg.style.cursor = 'pointer';
             
-            const pin = document.createElement('div');
-            pin.className = 'projection-pin';
-            pin.style.position = 'absolute';
-            pin.style.left = coords.x + '%';
-            pin.style.top = coords.y + '%';
-            pin.style.width = '32px';
-            pin.style.height = '32px';
-            pin.style.transform = 'translate(-50%, -50%)';
-            pin.style.cursor = 'pointer';
-            pin.style.zIndex = '21';
-            pin.style.display = 'flex';
-            pin.style.alignItems = 'center';
-            pin.style.justifyContent = 'center';
-            pin.dataset.region = regionId;
-            pin.dataset.count = count;
+            // Corps du pin (goutte)
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', 'M20 0C10 0 2 8 2 18C2 28 20 48 20 48C20 48 38 28 38 18C38 8 30 0 20 0Z');
+            path.setAttribute('fill', '#9B8E6E');
+            path.setAttribute('stroke', '#7E6F50');
+            path.setAttribute('stroke-width', '1.5');
             
-            const pinIcon = document.createElement('span');
-            pinIcon.className = 'pin-icon';
-            pinIcon.style.fontSize = '24px';
-            pinIcon.style.filter = 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))';
-            pinIcon.style.transition = 'all 0.3s ease';
-            pinIcon.textContent = '📍';
-            pin.appendChild(pinIcon);
+            // Cercle blanc au centre
+            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', '20');
+            circle.setAttribute('cy', '18');
+            circle.setAttribute('r', '8');
+            circle.setAttribute('fill', 'white');
+            
+            // Nombre de projections
+            const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            text.setAttribute('x', '20');
+            text.setAttribute('y', '22');
+            text.setAttribute('text-anchor', 'middle');
+            text.setAttribute('font-size', '14');
+            text.setAttribute('font-weight', 'bold');
+            text.setAttribute('fill', '#9B8E6E');
+            text.textContent = count;
+            
+            svg.appendChild(path);
+            svg.appendChild(circle);
+            svg.appendChild(text);
+            pin.appendChild(svg);
             
             pinsOverlay.appendChild(pin);
             
@@ -214,8 +242,8 @@ function setupFranceMap() {
             
             // Événements du pin
             pin.addEventListener('mouseenter', () => {
-                pinIcon.style.fontSize = '28px';
-                pinIcon.style.filter = 'drop-shadow(0 3px 8px rgba(0,0,0,0.3))';
+                svg.style.transform = 'scale(1.25)';
+                svg.style.filter = 'drop-shadow(0 4px 12px rgba(155, 142, 110, 0.4))';
                 
                 const regionName = regionNames[regionId] || regionId;
                 tooltip.textContent = `${regionName} (${count} projection${count > 1 ? 's' : ''})`;
@@ -223,21 +251,22 @@ function setupFranceMap() {
                 
                 const rect = pin.getBoundingClientRect();
                 tooltip.style.left = (rect.left + rect.width / 2) + 'px';
-                tooltip.style.top = (rect.top - 40) + 'px';
+                tooltip.style.top = (rect.top - 50) + 'px';
                 tooltip.style.transform = 'translateX(-50%)';
             });
             
             pin.addEventListener('mouseleave', () => {
-                pinIcon.style.fontSize = '24px';
-                pinIcon.style.filter = 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))';
+                svg.style.transform = 'scale(1)';
+                svg.style.filter = 'drop-shadow(0 2px 6px rgba(0,0,0,0.2))';
                 tooltip.style.opacity = '0';
             });
             
             pin.addEventListener('click', () => {
-                displayProjectionsForRegion(regionId);
-                projectionsList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                if (count > 0) {
+                    displayProjectionsForRegion(regionId);
+                    projectionsList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
             });
-        }
     });
     
     // Afficher les projections passées

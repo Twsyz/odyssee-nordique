@@ -75,6 +75,14 @@ const projectionsData = {
             date: "10/05/2025",
             horaire: "20:30",
             lien: "https://www.exemple.com/star"
+        },
+        {
+            region: "hauts-de-france",
+            lieu: "Cinéma Le Majestic",
+            ville: "Lille",
+            date: "17/05/2025",
+            horaire: "19:30",
+            lien: "https://www.exemple.com/majestic"
         }
     ],
     
