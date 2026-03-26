@@ -97,36 +97,110 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Fonction pour la carte de France interactive
 function setupFranceMap() {
-    const regions = document.querySelectorAll('.map-region');
     const projectionsList = document.getElementById('projections-list');
+    const mapContainer = document.querySelector('.map-container');
+    const mapImage = document.getElementById('france-map-image');
     
-    if (!regions.length || !projectionsList) return;
+    if (!mapContainer || !mapImage || !projectionsList) return;
     
-    // Ajouter le nombre de projections sur chaque région
-    if (typeof projectionsData !== 'undefined') {
-        regions.forEach(region => {
-            const regionId = region.id.replace('region-', '');
-            const count = projectionsData.upcoming.filter(p => p.region === regionId).length;
+    // Créer l'overlay de pins
+    const pinsOverlay = document.createElement('div');
+    pinsOverlay.className = 'pins-overlay';
+    mapContainer.appendChild(pinsOverlay);
+    
+    // Créer le tooltip
+    const tooltip = document.createElement('div');
+    tooltip.className = 'pin-tooltip';
+    document.body.appendChild(tooltip);
+    
+    // Coordonnées des régions (% de l'image)
+    const regionCoordinates = {
+        'ile-de-france': { x: 45, y: 20 },
+        'hauts-de-france': { x: 40, y: 10 },
+        'normandie': { x: 25, y: 15 },
+        'bretagne': { x: 15, y: 25 },
+        'pays-de-la-loire': { x: 20, y: 35 },
+        'centre': { x: 35, y: 35 },
+        'grand-est': { x: 55, y: 15 },
+        'bourgogne': { x: 45, y: 40 },
+        'auvergne': { x: 40, y: 55 },
+        'nouvelle-aquitaine': { x: 20, y: 55 },
+        'occitanie': { x: 35, y: 65 },
+        'paca': { x: 65, y: 70 }
+    };
+    
+    // Créer les pins pour chaque région
+    Object.keys(regionCoordinates).forEach(regionId => {
+        // Compter les projections pour cette région
+        const count = projectionsData.upcoming.filter(p => p.region === regionId).length;
+        
+        if (count > 0) {
+            const coords = regionCoordinates[regionId];
             
-            // Ajouter un titre avec le nombre
-            const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
-            title.textContent = `${regionId} - ${count} projection(s)`;
-            region.appendChild(title);
-        });
-    }
-    
-    // Gestion du clic sur les régions
-    regions.forEach(region => {
-        region.addEventListener('click', function() {
-            // Retirer la classe active de toutes les régions
-            regions.forEach(r => r.classList.remove('active'));
-            // Ajouter la classe active à la région cliquée
-            this.classList.add('active');
+            // Créer le pin
+            const pin = document.createElement('div');
+            pin.className = 'projection-pin';
+            pin.style.left = coords.x + '%';
+            pin.style.top = coords.y + '%';
+            pin.dataset.region = regionId;
+            pin.dataset.count = count;
             
-            const regionId = this.id.replace('region-', '');
-            displayProjectionsForRegion(regionId);
-        });
+            const pinIcon = document.createElement('span');
+            pinIcon.className = 'pin-icon';
+            pinIcon.textContent = '📍';
+            pin.appendChild(pinIcon);
+            
+            pinsOverlay.appendChild(pin);
+            
+            // Événements du pin
+            pin.addEventListener('mouseenter', (e) => {
+                const regionNames = {
+                    'hauts-de-france': 'Hauts-de-France',
+                    'normandie': 'Normandie',
+                    'bretagne': 'Bretagne',
+                    'pays-de-la-loire': 'Pays de la Loire',
+                    'centre': 'Centre-Val de Loire',
+                    'ile-de-france': 'Île-de-France',
+                    'grand-est': 'Grand Est',
+                    'bourgogne': 'Bourgogne-Franche-Comté',
+                    'auvergne': 'Auvergne-Rhône-Alpes',
+                    'nouvelle-aquitaine': 'Nouvelle-Aquitaine',
+                    'occitanie': 'Occitanie',
+                    'paca': 'Provence-Alpes-Côte d\'Azur'
+                };
+                
+                const regionName = regionNames[regionId] || regionId;
+                tooltip.textContent = `${regionName} (${count} projection${count > 1 ? 's' : ''})`;
+                tooltip.style.opacity = '1';
+                
+                // Position du tooltip à côté du curseur
+                const rect = pin.getBoundingClientRect();
+                tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+                tooltip.style.top = (rect.top - 40) + 'px';
+                tooltip.style.transform = 'translateX(-50%)';
+            });
+            
+            pin.addEventListener('mouseleave', () => {
+                tooltip.style.opacity = '0';
+            });
+            
+            pin.addEventListener('click', () => {
+                displayProjectionsForRegion(regionId);
+                // Faire défiler jusqu'aux projections
+                projectionsList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        }
     });
+    
+    // Afficher le message initial
+    if (projectionsData.upcoming.length > 0) {
+        const totalProjections = projectionsData.upcoming.length;
+        projectionsList.innerHTML = `
+            <p class="select-region-message">
+                🎯 <strong>Passez le curseur sur les pins</strong> pour voir les régions, <strong>cliquez</strong> pour voir les projections
+            </p>
+        `;
+    }
     
     // Afficher les projections passées
     displayPastProjections();
