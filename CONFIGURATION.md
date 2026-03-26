@@ -1,4 +1,4 @@
-# Configuration du formulaire de contact
+# 1. Configuration du formulaire de contact
 
 ## 1. Configuration EmailJS
 
@@ -68,3 +68,18 @@ clé secrète
 ```javascript
 const RECAPTCHA_SITE_KEY = 'VOTRE_SITE_KEY_RECAPTCHA'; // Votre Site Key
 ```
+
+# Configuration projections
+Ajoutez/modifiez les projections dans js/france-map-data.js :
+
+Ajoutez vos projections dans projectionsData.upcoming
+
+Ajoutez les passées dans projectionsData.past
+
+Testez :
+
+Ouvrez projections.html
+
+Cliquez sur les régions
+
+Vérifiez que les projections s'affichent

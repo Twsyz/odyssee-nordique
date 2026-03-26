@@ -904,3 +904,185 @@ h3 {
         display: none;
     }
 }
+
+/* Carte de France interactive */
+.map-container {
+    position: relative;
+    margin: 40px 0;
+    text-align: center;
+    background-color: #F5F2EA;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.france-map-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.map-region {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map-region:hover {
+    filter: brightness(0.95);
+}
+
+.map-region.active {
+    filter: brightness(0.85);
+    stroke: #9B8E6E;
+    stroke-width: 3;
+}
+
+/* Compteur sur les régions */
+.region-badge {
+    position: absolute;
+    background-color: #9B8E6E;
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    pointer-events: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+/* Projections list */
+.projections-list-container {
+    margin-top: 30px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.projections-grid {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.projection-item {
+    padding: 20px;
+    background-color: #FDF9F0;
+    border-radius: 8px;
+    border-left: 4px solid #9B8E6E;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projection-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.projection-location {
+    font-weight: 700;
+    color: #9B8E6E;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.projection-details {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.projection-link {
+    display: inline-block;
+    color: #9B8E6E;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 8px;
+    transition: color 0.3s ease;
+}
+
+.projection-link:hover {
+    color: #7E6F50;
+    text-decoration: underline;
+}
+
+.select-region-message {
+    text-align: center;
+    color: #9B8E6E;
+    font-style: italic;
+    padding: 40px;
+    background-color: #FDF9F0;
+    border-radius: 8px;
+}
+
+/* Projections passées */
+.past-projections {
+    margin-top: 40px;
+}
+
+.past-list {
+    display: grid;
+    gap: 12px;
+}
+
+.past-item {
+    background-color: #F5F2EA;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.past-item:hover {
+    transform: translateX(5px);
+}
+
+.past-item strong {
+    color: #9B8E6E;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    text-align: center;
+    padding: 40px;
+    color: #9B8E6E;
+}
+
+.loading-spinner:after {
+    content: '⏳';
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projection-item {
+        padding: 15px;
+    }
+    
+    .region-badge {
+        width: 22px;
+        height: 22px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Message d'erreur */
+.error-message {
+    text-align: center;
+    padding: 40px;
+    color: #d9534f;
+    background-color: #f8d7da;
+    border-radius: 8px;
+}
