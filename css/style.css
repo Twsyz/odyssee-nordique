@@ -938,6 +938,147 @@ h3 {
     stroke-width: 3;
 }
 
+/* Enhanced Projections Styles */
+.map-container {
+    background: linear-gradient(135deg, #F5F2EA 0%, #EDE8DE 100%);
+    padding: 30px;
+}
+
+.france-map-image {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.france-map-image:hover {
+    transform: scale(1.01);
+}
+
+.projections-list-container {
+    margin-top: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    min-height: 300px;
+}
+
+.projections-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.projection-item {
+    padding: 20px;
+    background: linear-gradient(135deg, #FDF9F0 0%, #F8F3E8 100%);
+    border-radius: 12px;
+    border-left: 4px solid #9B8E6E;
+    transition: all 0.3s ease;
+}
+
+.projection-item:hover {
+    transform: translateX(5px);
+    background: linear-gradient(135deg, #F8F3E8 0%, #F0E8DC 100%);
+}
+
+.projection-location {
+    font-weight: 700;
+    color: #9B8E6E;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.projection-details {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.projection-link {
+    display: inline-block;
+    color: #9B8E6E;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+}
+
+.projection-link:hover {
+    color: #7E6F50;
+    transform: translateX(5px);
+}
+
+.past-item {
+    background: linear-gradient(135deg, #F5F2EA 0%, #EDE8DE 100%);
+    padding: 15px 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.past-item:hover {
+    transform: translateX(5px);
+    background: linear-gradient(135deg, #EDE8DE 0%, #E5DFD3 100%);
+}
+
+.past-item strong {
+    color: #9B8E6E;
+}
+
+.select-region-message {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #FDF9F0 0%, #F8F3E8 100%);
+    border-radius: 16px;
+    color: #9B8E6E;
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #F5F2EA 0%, #EDE8DE 100%);
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 40px;
+    color: #9B8E6E;
+}
+
+.loading-spinner:after {
+    content: '⏳';
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 /* Compteur sur les régions */
 .region-badge {
     position: absolute;

@@ -5,13 +5,13 @@
 const franceRegions = {
     'hauts-de-france': {
         name: 'Hauts-de-France',
-        coords: [150, 80, 280, 150], // [x1, y1, x2, y2] en pixels (image originale)
+        coords: [379, 117, 378, 60], // [x1, y1, x2, y2] en pixels (image originale)
         shape: 'rect',
         color: '#9B8E6E'
     },
     'normandie': {
         name: 'Normandie',
-        coords: [80, 100, 180, 160],
+        coords: [312, 161, 180, 160],
         shape: 'rect',
         color: '#9B8E6E'
     },
