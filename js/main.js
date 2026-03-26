@@ -36,14 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Récupération des valeurs
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             const formMessage = document.getElementById('formMessage');
             
-            // Validation simple
             if (!name || !email || !subject || !message) {
                 formMessage.textContent = 'Veuillez remplir tous les champs obligatoires.';
                 formMessage.className = 'form-message error';
@@ -56,14 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulation d'envoi
             formMessage.textContent = 'Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.';
             formMessage.className = 'form-message success';
-            
-            // Réinitialisation du formulaire
             contactForm.reset();
             
-            // Effacer le message après 5 secondes
             setTimeout(() => {
                 formMessage.textContent = '';
                 formMessage.className = 'form-message';
@@ -93,7 +87,232 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Gestion de la carte de France pour les projections
     setupFranceMap();
+    
+    // Animation de la route
+    setupRouteAnimation();
 });
+
+// Animation de la route interactive
+function setupRouteAnimation() {
+    const routeSection = document.getElementById('routeSection');
+    const routeFill = document.getElementById('route-fill');
+    const progressFill = document.getElementById('progressFill');
+    const currentCitySpan = document.getElementById('currentCity');
+    const progressPercentageSpan = document.getElementById('progressPercentage');
+    const distanceCoveredSpan = document.getElementById('distanceCovered');
+    const citiesReachedSpan = document.getElementById('citiesReached');
+    const waypoints = document.querySelectorAll('.waypoint');
+    
+    if (!routeSection || !routeFill) return;
+    
+    const cities = ['Oslo', 'Lillehammer', 'Trondheim', 'Bodø', 'Tromsø', 'Nordkapp', 'Rovaniemi', 'Helsinki', 'Stockholm'];
+    const distances = [0, 180, 450, 850, 1200, 1650, 2100, 2650, 3200];
+    const totalLength = routeFill.getTotalLength();
+
+    routeFill.style.strokeDasharray = totalLength;
+    routeFill.style.strokeDashoffset = totalLength;
+    
+    let animationPlayed = false;
+    let currentProgress = 0;
+    
+    // Créer l'observateur pour déclencher l'animation
+    const routeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animationPlayed) {
+                animationPlayed = true;
+                
+                // Démarrer l'animation
+                startRouteAnimation();
+                
+                // Unobserve après le début
+                routeObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    routeObserver.observe(routeSection);
+    
+    function startRouteAnimation() {
+        // Fonction de mise à jour de la route
+        function updateRoute(progress) {
+            progress = Math.max(0, Math.min(1, progress));
+            currentProgress = progress;
+            
+            // Appliquer l'animation de la route
+            const dashOffset = totalLength * (1 - progress);
+            routeFill.style.strokeDashoffset = dashOffset;
+            
+            // Mettre à jour la barre de progression
+            if (progressFill) {
+                progressFill.style.width = (progress * 100) + '%';
+            }
+            
+            // Mettre à jour le pourcentage
+            if (progressPercentageSpan) {
+                progressPercentageSpan.textContent = Math.round(progress * 100) + '%';
+            }
+            
+            // Mettre à jour la ville actuelle et les distances
+            if (progress >= 1) {
+                if (currentCitySpan) currentCitySpan.textContent = cities[cities.length - 1];
+                if (distanceCoveredSpan) distanceCoveredSpan.textContent = distances[distances.length - 1];
+                if (citiesReachedSpan) citiesReachedSpan.textContent = cities.length;
+            } else if (progress <= 0) {
+                if (currentCitySpan) currentCitySpan.textContent = cities[0];
+                if (distanceCoveredSpan) distanceCoveredSpan.textContent = distances[0];
+                if (citiesReachedSpan) citiesReachedSpan.textContent = 1;
+            } else {
+                const cityIndex = Math.floor(progress * (cities.length - 1));
+                if (currentCitySpan) currentCitySpan.textContent = cities[cityIndex];
+                if (distanceCoveredSpan) distanceCoveredSpan.textContent = distances[cityIndex];
+                if (citiesReachedSpan) citiesReachedSpan.textContent = cityIndex + 1;
+            }
+            
+            // Animation des points d'étape
+            const currentIndex = Math.round(progress * (cities.length - 1));
+                waypoints.forEach((waypoint, index) => {
+
+                const waypointProgress = index / (waypoints.length - 1);
+
+                if (progress >= waypointProgress) {
+
+                    waypoint.style.fill = '#E8D9B0';
+                    waypoint.style.stroke = '#9B8E6E';
+                    waypoint.style.strokeWidth = '2';
+                    waypoint.style.r = '12';
+                    waypoint.style.filter = 'url(#glow)';
+
+                } else {
+
+                    waypoint.style.fill = '#D4C9B0';
+                    waypoint.style.stroke = 'none';
+                    waypoint.style.r = '8';
+                    waypoint.style.filter = 'none';
+
+                }
+
+            });
+        }
+        
+        // Gestion du scroll
+        function handleScroll() {
+
+            const rect = routeSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            let progress = (windowHeight - rect.top) / rect.height;
+
+            progress = Math.max(0, Math.min(1, progress));
+
+            updateRoute(progress);
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+        handleScroll();
+    }
+    
+    // Animation des sections de statistiques
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const numberObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                let targetNumber = parseInt(element.textContent.replace(/[^0-9]/g, ''));
+                
+                if (!isNaN(targetNumber) && element.getAttribute('data-animated') !== 'true') {
+                    element.setAttribute('data-animated', 'true');
+                    const hasPlus = element.textContent.includes('+');
+                    animateNumber(element, 0, targetNumber, 1500, hasPlus);
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    statNumbers.forEach(stat => {
+        const originalValue = stat.textContent;
+        stat.setAttribute('data-target', originalValue);
+        const hasPlus = originalValue.includes('+');
+        const numericValue = parseInt(originalValue.replace(/[^0-9]/g, ''));
+        if (!isNaN(numericValue)) {
+            stat.textContent = hasPlus ? '0+' : '0';
+        }
+        numberObserver.observe(stat);
+    });
+    
+    function animateNumber(element, start, end, duration, hasPlus = false) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const currentValue = Math.floor(progress * (end - start) + start);
+            element.textContent = hasPlus ? currentValue + '+' : currentValue;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                element.textContent = hasPlus ? end + '+' : end;
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+    
+    // Animation des éléments de philosophie
+    const travelPhilosophy = document.querySelector('.travel-philosophy');
+    const philosophyItems = document.querySelectorAll('.philosophy-item');
+    
+    const philosophyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                philosophyItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+                philosophyObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    if (travelPhilosophy) {
+        philosophyItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        philosophyObserver.observe(travelPhilosophy);
+    }
+    
+    // Animation des éléments de matériel
+    const gearItems = document.querySelectorAll('.gear-item');
+    
+    const gearObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                gearItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 150);
+                });
+                gearObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    if (gearItems.length) {
+        gearItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        const gearSection = document.querySelector('.gear');
+        if (gearSection) {
+            gearObserver.observe(gearSection);
+        }
+    }
+}
 
 // Fonction pour la carte de France interactive
 function setupFranceMap() {
@@ -165,7 +384,6 @@ function setupFranceMap() {
         const count = projectionsData.upcoming.filter(p => p.region === regionId).length;
         const coords = regionCoordinates[regionId];
         
-        // Vérifier si le pin existe déjà
         if (document.querySelector(`[data-region="${regionId}"]`)) return;
         
         const pin = document.createElement('div');
@@ -182,94 +400,86 @@ function setupFranceMap() {
         pin.dataset.region = regionId;
         pin.dataset.count = count;
             
-            // Créer le SVG du pin
-            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svg.setAttribute('viewBox', '0 0 40 50');
-            svg.setAttribute('width', '40');
-            svg.setAttribute('height', '50');
-            svg.style.width = '100%';
-            svg.style.height = '100%';
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 40 50');
+        svg.setAttribute('width', '40');
+        svg.setAttribute('height', '50');
+        svg.style.width = '100%';
+        svg.style.height = '100%';
+        svg.style.filter = 'drop-shadow(0 2px 6px rgba(0,0,0,0.2))';
+        svg.style.transition = 'all 0.3s ease';
+        svg.style.cursor = 'pointer';
+        
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M20 0C10 0 2 8 2 18C2 28 20 48 20 48C20 48 38 28 38 18C38 8 30 0 20 0Z');
+        path.setAttribute('fill', '#9B8E6E');
+        path.setAttribute('stroke', '#7E6F50');
+        path.setAttribute('stroke-width', '1.5');
+        
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', '20');
+        circle.setAttribute('cy', '18');
+        circle.setAttribute('r', '8');
+        circle.setAttribute('fill', 'white');
+        
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', '20');
+        text.setAttribute('y', '22');
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('font-size', '14');
+        text.setAttribute('font-weight', 'bold');
+        text.setAttribute('fill', '#9B8E6E');
+        text.textContent = count;
+        
+        svg.appendChild(path);
+        svg.appendChild(circle);
+        svg.appendChild(text);
+        pin.appendChild(svg);
+        pinsOverlay.appendChild(pin);
+        
+        const regionNames = {
+            'hauts-de-france': 'Hauts-de-France',
+            'normandie': 'Normandie',
+            'bretagne': 'Bretagne',
+            'pays-de-la-loire': 'Pays de la Loire',
+            'centre': 'Centre-Val de Loire',
+            'ile-de-france': 'Île-de-France',
+            'grand-est': 'Grand Est',
+            'bourgogne': 'Bourgogne-Franche-Comté',
+            'auvergne': 'Auvergne-Rhône-Alpes',
+            'nouvelle-aquitaine': 'Nouvelle-Aquitaine',
+            'occitanie': 'Occitanie',
+            'paca': 'Provence-Alpes-Côte d\'Azur'
+        };
+        
+        pin.addEventListener('mouseenter', () => {
+            svg.style.transform = 'scale(1.25)';
+            svg.style.filter = 'drop-shadow(0 4px 12px rgba(155, 142, 110, 0.4))';
+            
+            const regionName = regionNames[regionId] || regionId;
+            tooltip.textContent = `${regionName} (${count} projection${count > 1 ? 's' : ''})`;
+            tooltip.style.opacity = '1';
+            
+            const rect = pin.getBoundingClientRect();
+            tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+            tooltip.style.top = (rect.top - 50) + 'px';
+            tooltip.style.transform = 'translateX(-50%)';
+        });
+        
+        pin.addEventListener('mouseleave', () => {
+            svg.style.transform = 'scale(1)';
             svg.style.filter = 'drop-shadow(0 2px 6px rgba(0,0,0,0.2))';
-            svg.style.transition = 'all 0.3s ease';
-            svg.style.cursor = 'pointer';
-            
-            // Corps du pin (goutte)
-            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            path.setAttribute('d', 'M20 0C10 0 2 8 2 18C2 28 20 48 20 48C20 48 38 28 38 18C38 8 30 0 20 0Z');
-            path.setAttribute('fill', '#9B8E6E');
-            path.setAttribute('stroke', '#7E6F50');
-            path.setAttribute('stroke-width', '1.5');
-            
-            // Cercle blanc au centre
-            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            circle.setAttribute('cx', '20');
-            circle.setAttribute('cy', '18');
-            circle.setAttribute('r', '8');
-            circle.setAttribute('fill', 'white');
-            
-            // Nombre de projections
-            const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-            text.setAttribute('x', '20');
-            text.setAttribute('y', '22');
-            text.setAttribute('text-anchor', 'middle');
-            text.setAttribute('font-size', '14');
-            text.setAttribute('font-weight', 'bold');
-            text.setAttribute('fill', '#9B8E6E');
-            text.textContent = count;
-            
-            svg.appendChild(path);
-            svg.appendChild(circle);
-            svg.appendChild(text);
-            pin.appendChild(svg);
-            
-            pinsOverlay.appendChild(pin);
-            
-            // Noms des régions
-            const regionNames = {
-                'hauts-de-france': 'Hauts-de-France',
-                'normandie': 'Normandie',
-                'bretagne': 'Bretagne',
-                'pays-de-la-loire': 'Pays de la Loire',
-                'centre': 'Centre-Val de Loire',
-                'ile-de-france': 'Île-de-France',
-                'grand-est': 'Grand Est',
-                'bourgogne': 'Bourgogne-Franche-Comté',
-                'auvergne': 'Auvergne-Rhône-Alpes',
-                'nouvelle-aquitaine': 'Nouvelle-Aquitaine',
-                'occitanie': 'Occitanie',
-                'paca': 'Provence-Alpes-Côte d\'Azur'
-            };
-            
-            // Événements du pin
-            pin.addEventListener('mouseenter', () => {
-                svg.style.transform = 'scale(1.25)';
-                svg.style.filter = 'drop-shadow(0 4px 12px rgba(155, 142, 110, 0.4))';
-                
-                const regionName = regionNames[regionId] || regionId;
-                tooltip.textContent = `${regionName} (${count} projection${count > 1 ? 's' : ''})`;
-                tooltip.style.opacity = '1';
-                
-                const rect = pin.getBoundingClientRect();
-                tooltip.style.left = (rect.left + rect.width / 2) + 'px';
-                tooltip.style.top = (rect.top - 50) + 'px';
-                tooltip.style.transform = 'translateX(-50%)';
-            });
-            
-            pin.addEventListener('mouseleave', () => {
-                svg.style.transform = 'scale(1)';
-                svg.style.filter = 'drop-shadow(0 2px 6px rgba(0,0,0,0.2))';
-                tooltip.style.opacity = '0';
-            });
-            
-            pin.addEventListener('click', () => {
-                if (count > 0) {
-                    displayProjectionsForRegion(regionId);
-                    projectionsList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            });
+            tooltip.style.opacity = '0';
+        });
+        
+        pin.addEventListener('click', () => {
+            if (count > 0) {
+                displayProjectionsForRegion(regionId);
+                projectionsList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
     });
     
-    // Afficher les projections passées
     displayPastProjections();
 }
 
@@ -352,151 +562,3 @@ function displayPastProjections() {
     
     pastList.innerHTML = html;
 }
-
-// Animation de la route au scroll pour la page voyage
-function setupVoyageAnimations() {
-    const routeFill = document.querySelector('.route-fill');
-    const routeSvg = document.querySelector('.route-svg');
-    
-    if (!routeFill || !routeSvg) return;
-    
-    // Animation progressive de la route au scroll
-    const handleRouteScroll = () => {
-        const rect = routeSvg.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        // Distance entre le centre de l'écran et le SVG
-        const elementCenter = rect.top + rect.height / 2;
-        const screenCenter = windowHeight / 2;
-        
-        // Calculer le pourcentage: 0 si au bas, 1 si au haut
-        const triggerDistance = windowHeight;
-        let progress = (triggerDistance - (elementCenter - screenCenter)) / triggerDistance;
-        progress = Math.max(0, Math.min(1, progress));
-        
-        // Appliquer l'animation : 1500 est la longueur totale de la ligne
-        const dashOffset = 1500 * (1 - progress);
-        routeFill.style.strokeDashoffset = dashOffset;
-        
-        console.log('Progress:', progress, 'DashOffset:', dashOffset);
-    };
-    
-    window.addEventListener('scroll', handleRouteScroll, { passive: true });
-    window.addEventListener('resize', handleRouteScroll, { passive: true });
-    handleRouteScroll(); // Appel initial
-    
-    // Animation des points d'étape au scroll
-    const waypoints = document.querySelectorAll('.waypoint');
-    
-    const waypointObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.r = '8';
-                entry.target.style.transition = 'r 0.3s ease';
-                waypointObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    waypoints.forEach(waypoint => {
-        waypointObserver.observe(waypoint);
-    });
-    
-    // Animation des sections de statistiques
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    const numberObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const element = entry.target;
-                const targetNumber = parseInt(element.textContent);
-                
-                if (!isNaN(targetNumber) && element.getAttribute('data-animated') !== 'true') {
-                    element.setAttribute('data-animated', 'true');
-                    animateNumber(element, 0, targetNumber, 1500);
-                }
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    statNumbers.forEach(stat => {
-        // Sauvegarder la valeur originale
-        const originalValue = stat.textContent;
-        stat.setAttribute('data-target', originalValue);
-        stat.textContent = '0';
-        numberObserver.observe(stat);
-    });
-    
-    // Fonction d'animation des nombres
-    function animateNumber(element, start, end, duration) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const currentValue = Math.floor(progress * (end - start) + start);
-            element.textContent = currentValue;
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            } else {
-                element.textContent = end;
-            }
-        };
-        window.requestAnimationFrame(step);
-    }
-    
-    // Animation du texte de l'intro voyage
-    const travelPhilosophy = document.querySelector('.travel-philosophy');
-    const philosophyItems = document.querySelectorAll('.philosophy-item');
-    
-    const philosophyObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                philosophyItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-                philosophyObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    if (travelPhilosophy) {
-        philosophyItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-        philosophyObserver.observe(travelPhilosophy);
-    }
-    
-    // Animation des éléments de matériel
-    const gearItems = document.querySelectorAll('.gear-item');
-    
-    const gearObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                gearItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, index * 150);
-                });
-                gearObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    if (gearItems.length) {
-        gearItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
-        gearObserver.observe(document.querySelector('.gear'));
-    }
-}
-
-// Appeler les animations de voyage si on est sur la page voyage
-setupVoyageAnimations();
