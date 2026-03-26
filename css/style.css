@@ -1079,11 +1079,25 @@ h3 {
     to { transform: rotate(360deg); }
 }
 
-/* Interactive Pins */
-.map-container {
-    position: relative;
+/* Compteur sur les régions */
+.region-badge {
+    position: absolute;
+    background-color: #9B8E6E;
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    pointer-events: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
 }
 
+/* Interactive Pins Styles */
 .pins-overlay {
     position: absolute;
     top: 0;
@@ -1092,30 +1106,16 @@ h3 {
     height: 100%;
     pointer-events: all;
     z-index: 20;
-    border-radius: 12px;
 }
 
 .projection-pin {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    transform: translate(-50%, -50%);
     cursor: pointer;
-    z-index: 21;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.pin-icon {
-    font-size: 24px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .projection-pin:hover .pin-icon {
-    font-size: 28px;
-    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.3));
+    font-size: 28px !important;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.3)) !important;
 }
 
 .pin-tooltip {
@@ -1133,24 +1133,6 @@ h3 {
     transition: opacity 0.2s ease;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Compteur sur les régions */
-.region-badge {
-    position: absolute;
-    background-color: #9B8E6E;
-    color: white;
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-    pointer-events: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 10;
 }
 
 /* Projections list */

@@ -97,21 +97,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Fonction pour la carte de France interactive
 function setupFranceMap() {
+    if (typeof projectionsData === 'undefined') return;
+    
     const projectionsList = document.getElementById('projections-list');
     const mapContainer = document.querySelector('.map-container');
-    const mapImage = document.getElementById('france-map-image');
+    const mapImage = document.querySelector('.france-map-image');
     
-    if (!mapContainer || !mapImage || !projectionsList) return;
+    if (!projectionsList || !mapContainer || !mapImage) return;
     
     // Créer l'overlay de pins
-    const pinsOverlay = document.createElement('div');
-    pinsOverlay.className = 'pins-overlay';
-    mapContainer.appendChild(pinsOverlay);
+    let pinsOverlay = document.querySelector('.pins-overlay');
+    if (!pinsOverlay) {
+        pinsOverlay = document.createElement('div');
+        pinsOverlay.className = 'pins-overlay';
+        pinsOverlay.style.position = 'absolute';
+        pinsOverlay.style.top = '0';
+        pinsOverlay.style.left = '0';
+        pinsOverlay.style.width = '100%';
+        pinsOverlay.style.height = '100%';
+        pinsOverlay.style.pointerEvents = 'all';
+        pinsOverlay.style.zIndex = '20';
+        pinsOverlay.style.borderRadius = '12px';
+        mapContainer.style.position = 'relative';
+        mapContainer.appendChild(pinsOverlay);
+    }
     
     // Créer le tooltip
-    const tooltip = document.createElement('div');
-    tooltip.className = 'pin-tooltip';
-    document.body.appendChild(tooltip);
+    let tooltip = document.querySelector('.pin-tooltip');
+    if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.className = 'pin-tooltip';
+        tooltip.style.position = 'fixed';
+        tooltip.style.background = 'rgba(44, 42, 38, 0.95)';
+        tooltip.style.color = 'white';
+        tooltip.style.padding = '8px 12px';
+        tooltip.style.borderRadius = '6px';
+        tooltip.style.fontSize = '0.85rem';
+        tooltip.style.fontWeight = '500';
+        tooltip.style.pointerEvents = 'none';
+        tooltip.style.zIndex = '1000';
+        tooltip.style.whiteSpace = 'nowrap';
+        tooltip.style.opacity = '0';
+        tooltip.style.transition = 'opacity 0.2s ease';
+        tooltip.style.boxShadow = '0 2px 8px rgba(0,0,0,0.3)';
+        tooltip.style.border = '1px solid rgba(255,255,255,0.1)';
+        document.body.appendChild(tooltip);
+    }
     
     // Coordonnées des régions (% de l'image)
     const regionCoordinates = {
@@ -131,49 +162,65 @@ function setupFranceMap() {
     
     // Créer les pins pour chaque région
     Object.keys(regionCoordinates).forEach(regionId => {
-        // Compter les projections pour cette région
         const count = projectionsData.upcoming.filter(p => p.region === regionId).length;
         
         if (count > 0) {
             const coords = regionCoordinates[regionId];
             
-            // Créer le pin
+            // Vérifier si le pin existe déjà
+            if (document.querySelector(`[data-region="${regionId}"]`)) return;
+            
             const pin = document.createElement('div');
             pin.className = 'projection-pin';
+            pin.style.position = 'absolute';
             pin.style.left = coords.x + '%';
             pin.style.top = coords.y + '%';
+            pin.style.width = '32px';
+            pin.style.height = '32px';
+            pin.style.transform = 'translate(-50%, -50%)';
+            pin.style.cursor = 'pointer';
+            pin.style.zIndex = '21';
+            pin.style.display = 'flex';
+            pin.style.alignItems = 'center';
+            pin.style.justifyContent = 'center';
             pin.dataset.region = regionId;
             pin.dataset.count = count;
             
             const pinIcon = document.createElement('span');
             pinIcon.className = 'pin-icon';
+            pinIcon.style.fontSize = '24px';
+            pinIcon.style.filter = 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))';
+            pinIcon.style.transition = 'all 0.3s ease';
             pinIcon.textContent = '📍';
             pin.appendChild(pinIcon);
             
             pinsOverlay.appendChild(pin);
             
+            // Noms des régions
+            const regionNames = {
+                'hauts-de-france': 'Hauts-de-France',
+                'normandie': 'Normandie',
+                'bretagne': 'Bretagne',
+                'pays-de-la-loire': 'Pays de la Loire',
+                'centre': 'Centre-Val de Loire',
+                'ile-de-france': 'Île-de-France',
+                'grand-est': 'Grand Est',
+                'bourgogne': 'Bourgogne-Franche-Comté',
+                'auvergne': 'Auvergne-Rhône-Alpes',
+                'nouvelle-aquitaine': 'Nouvelle-Aquitaine',
+                'occitanie': 'Occitanie',
+                'paca': 'Provence-Alpes-Côte d\'Azur'
+            };
+            
             // Événements du pin
-            pin.addEventListener('mouseenter', (e) => {
-                const regionNames = {
-                    'hauts-de-france': 'Hauts-de-France',
-                    'normandie': 'Normandie',
-                    'bretagne': 'Bretagne',
-                    'pays-de-la-loire': 'Pays de la Loire',
-                    'centre': 'Centre-Val de Loire',
-                    'ile-de-france': 'Île-de-France',
-                    'grand-est': 'Grand Est',
-                    'bourgogne': 'Bourgogne-Franche-Comté',
-                    'auvergne': 'Auvergne-Rhône-Alpes',
-                    'nouvelle-aquitaine': 'Nouvelle-Aquitaine',
-                    'occitanie': 'Occitanie',
-                    'paca': 'Provence-Alpes-Côte d\'Azur'
-                };
+            pin.addEventListener('mouseenter', () => {
+                pinIcon.style.fontSize = '28px';
+                pinIcon.style.filter = 'drop-shadow(0 3px 8px rgba(0,0,0,0.3))';
                 
                 const regionName = regionNames[regionId] || regionId;
                 tooltip.textContent = `${regionName} (${count} projection${count > 1 ? 's' : ''})`;
                 tooltip.style.opacity = '1';
                 
-                // Position du tooltip à côté du curseur
                 const rect = pin.getBoundingClientRect();
                 tooltip.style.left = (rect.left + rect.width / 2) + 'px';
                 tooltip.style.top = (rect.top - 40) + 'px';
@@ -181,26 +228,17 @@ function setupFranceMap() {
             });
             
             pin.addEventListener('mouseleave', () => {
+                pinIcon.style.fontSize = '24px';
+                pinIcon.style.filter = 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))';
                 tooltip.style.opacity = '0';
             });
             
             pin.addEventListener('click', () => {
                 displayProjectionsForRegion(regionId);
-                // Faire défiler jusqu'aux projections
                 projectionsList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             });
         }
     });
-    
-    // Afficher le message initial
-    if (projectionsData.upcoming.length > 0) {
-        const totalProjections = projectionsData.upcoming.length;
-        projectionsList.innerHTML = `
-            <p class="select-region-message">
-                🎯 <strong>Passez le curseur sur les pins</strong> pour voir les régions, <strong>cliquez</strong> pour voir les projections
-            </p>
-        `;
-    }
     
     // Afficher les projections passées
     displayPastProjections();
