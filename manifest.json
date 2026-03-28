@@ -1,0 +1,8 @@
+{
+  "name": "Odyssée-Nordique",
+  "short_name": "Odyssée-Nordique",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDF9F0",
+  "theme_color": "#000000"
+}

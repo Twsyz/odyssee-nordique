@@ -1,0 +1,67 @@
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://twsyz.github.io/odyssee-nordique/#organization",
+   "name": "L'Odyssée Nordique",
+   "alternateName": "Odyssée Nordique",
+   "url": "https://twsyz.github.io/odyssee-nordique",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://twsyz.github.io/odyssee-nordique/images/odyssee-nordique-logo.png",
+    "width": 250,
+    "height": 250
+   },
+   "description": "Un documentaire inspirant sur la renaissance par le voyage aux pays nordiques",
+   "sameAs": [
+    "https://www.facebook.com/odysseenordique",
+    "https://www.instagram.com/odysseenordique",
+    "https://www.youtube.com/c/odysseenordique"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+33-1-23-45-67-89",
+    "contactType": "Customer Service",
+    "email": "contact@odyssee-nordique.com"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://twsyz.github.io/odyssee-nordique/#website",
+   "url": "https://twsyz.github.io/odyssee-nordique",
+   "name": "L'Odyssée Nordique",
+   "description": "Documentaire et aventure sur le voyage aux pays nordiques",
+   "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://twsyz.github.io/odyssee-nordique/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+   }
+  },
+  {
+   "@type": "Movie",
+   "@id": "https://twsyz.github.io/odyssee-nordique/documentaire.html",
+   "name": "L'Odyssée Nordique",
+   "alternateName": "The Nordic Odyssey",
+   "description": "Un documentaire inspirant sur la renaissance par le voyage aux pays nordiques. Une aventure a velo vers la liberte et la redecouverte de soi.",
+   "url": "https://twsyz.github.io/odyssee-nordique/documentaire.html",
+   "image": "https://twsyz.github.io/odyssee-nordique/images/odyssee-nordique-poster.jpg",
+   "genre": ["Documentaire", "Voyage", "Aventure"],
+   "contentRating": "PG",
+   "inLanguage": "fr-FR",
+   "datePublished": "2025-01-01",
+   "director": {
+    "@type": "Person",
+    "name": "JACOB Yvan"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://twsyz.github.io/odyssee-nordique/a-propos.html",
+   "name": "JACOB Yvan",
+   "url": "https://twsyz.github.io/odyssee-nordique",
+   "jobTitle": "Realisateur & Producteur",
+   "description": "Createur de L'Odyssee Nordique - Un documentaire sur le voyage et la transformation personnelle"
+  }
+ ]
+}
