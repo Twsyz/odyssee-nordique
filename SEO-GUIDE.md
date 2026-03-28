@@ -74,6 +74,8 @@ C'est LA chose la plus importante à faire ASAP:
 2. Crée un compte et ajoute ta propriété
 3. Ajoute le code de suivi à ton site (dans le <head> de toutes les pages)
 4. Cela te permettra de voir d'où viennent tes visiteurs et comment ils naviguent
+5. Pour le flux mettre feed sur wordpress (https://odyssee-nordique.com/feed/)
+et sur github twsyz.github.io/odyssee-nordique/feed.xml
 
 ### ⭐ PRIORITÉ 3: Optimiser les images
 
