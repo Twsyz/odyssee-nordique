@@ -1,1 +1,87 @@
-{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+  "name": "L'Odyssée Nordique : Reprendre la route",
+  "short_name": "Odyssée Nordique",
+  "description": "Un documentaire inspirant sur la renaissance par le voyage aux pays nordiques. Une aventure à vélo vers la liberté et la redécouverte de soi.",
+  "start_url": "https://twsyz.github.io/odyssee-nordique/",
+  "scope": "/odyssee-nordique/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#9B8E6E",
+  "background_color": "#FDF9F0",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["entertainment", "video"],
+  "screenshots": [
+    {
+      "src": "images/odyssee-nordique-thumbnail.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "images/odyssee-nordique-thumbnail.jpg",
+      "sizes": "1920x1080",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Le documentaire",
+      "short_name": "Documentaire",
+      "description": "Regarder la bande-annonce du documentaire L'Odyssée Nordique",
+      "url": "https://twsyz.github.io/odyssee-nordique/documentaire.html",
+      "icons": [
+        {
+          "src": "android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Projections",
+      "short_name": "Projections",
+      "description": "Découvrez où regarder le documentaire",
+      "url": "https://twsyz.github.io/odyssee-nordique/projections.html",
+      "icons": [
+        {
+          "src": "android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Nous contacter",
+      "short_name": "Contact",
+      "description": "Contactez L'Odyssée Nordique",
+      "url": "https://twsyz.github.io/odyssee-nordique/contact.html",
+      "icons": [
+        {
+          "src": "android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

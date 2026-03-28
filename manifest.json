@@ -1,8 +1,32 @@
 {
-  "name": "Odyssée-Nordique",
-  "short_name": "Odyssée-Nordique",
-  "start_url": "/",
+  "name": "L'Odyssée Nordique - Documentaire Voyage",
+  "short_name": "Odyssée Nordique",
+  "description": "Un documentaire inspirant sur la renaissance par le voyage aux pays nordiques",
+  "start_url": "https://twsyz.github.io/odyssee-nordique/",
+  "scope": "https://twsyz.github.io/odyssee-nordique/",
   "display": "standalone",
   "background_color": "#FDF9F0",
-  "theme_color": "#000000"
+  "theme_color": "#9B8E6E",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["entertainment", "video", "documentary", "travel", "adventure", "cycling"]
 }

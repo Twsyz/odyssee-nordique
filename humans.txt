@@ -1,6 +1,7 @@
 /* TEAM */
 Developer: JACOB Yvan
 Site: https://odyssee-nordique.com
+Owners: JEANNOT Hector, THOLLOT Aloïs
 
 /* SITE */
 Stack: HTML, CSS, JS
