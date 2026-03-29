@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -43,10 +45,45 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://twsyz.github.io/odyssee-nordique/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Le voyage",
+          "item": "https://twsyz.github.io/odyssee-nordique/voyage.html"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
       "@type": "Event",
-      "name": "L'Odyssée Nordique - Le voyage",
-      "description": "Suivez l'itinéraire d'aventure a velo à travers les pays nordiques",
-      "url": "https://twsyz.github.io/odyssee-nordique/voyage.html"
+      "name": "L'Odyssée Nordique - Voyage en Vélo",
+      "description": "Suivez l'itinéraire d'aventure à vélo à travers les pays nordiques avec JACOB Yvan. Une épopée cyclotouriste de 5 000 kilomètres à travers la Norvège, la Suède et la Finlande.",
+      "url": "https://twsyz.github.io/odyssee-nordique/voyage.html",
+      "image": "https://twsyz.github.io/odyssee-nordique/images/odyssee-nordique-thumbnail.jpg",
+      "eventType": "TravelEvent",
+      "organizer": {
+        "@type": "Person",
+        "name": "JACOB Yvan",
+        "url": "https://twsyz.github.io/odyssee-nordique/a-propos.html"
+      },
+      "location": {
+        "@type": "Place",
+        "name": "Pays Nordiques",
+        "geo": {
+          "@type": "GeoShape",
+          "box": "59.9139 10.7522 70.8621 31.0921"
+        }
+      }
     }
     </script>
 </head>

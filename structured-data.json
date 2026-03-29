@@ -13,7 +13,14 @@
     "width": 250,
     "height": 250
    },
-   "description": "Un documentaire inspirant sur la renaissance par le voyage aux pays nordiques",
+   "image": {
+    "@type": "ImageObject",
+    "url": "https://twsyz.github.io/odyssee-nordique/images/odyssee-nordique-thumbnail.jpg",
+    "width": 1200,
+    "height": 630
+   },
+   "description": "Un documentaire inspirant sur la renaissance par le voyage aux pays nordiques. Une épopée cyclotouriste de 5 000 kilomètres en Norvège, Suède et Finlande.",
+   "foundingDate": "2024",
    "sameAs": [
     "https://www.facebook.com/odysseenordique",
     "https://www.instagram.com/odysseenordique",
@@ -23,7 +30,8 @@
     "@type": "ContactPoint",
     "telephone": "+33-1-23-45-67-89",
     "contactType": "Customer Service",
-    "email": "contact@odyssee-nordique.com"
+    "email": "contact@odyssee-nordique.com",
+    "url": "https://twsyz.github.io/odyssee-nordique/contact.html"
    }
   },
   {
@@ -31,7 +39,11 @@
    "@id": "https://twsyz.github.io/odyssee-nordique/#website",
    "url": "https://twsyz.github.io/odyssee-nordique",
    "name": "L'Odyssée Nordique",
-   "description": "Documentaire et aventure sur le voyage aux pays nordiques",
+   "description": "Documentaire inspirant et aventure cyclotouriste aux pays nordiques",
+   "inLanguage": "fr",
+   "isPartOf": {
+    "@id": "https://twsyz.github.io/odyssee-nordique/#organization"
+   },
    "potentialAction": {
     "@type": "SearchAction",
     "target": "https://twsyz.github.io/odyssee-nordique/?s={search_term_string}",
@@ -43,14 +55,24 @@
    "@id": "https://twsyz.github.io/odyssee-nordique/documentaire.html",
    "name": "L'Odyssée Nordique",
    "alternateName": "The Nordic Odyssey",
-   "description": "Un documentaire inspirant sur la renaissance par le voyage aux pays nordiques. Une aventure a velo vers la liberte et la redecouverte de soi.",
+   "description": "Un documentaire inspirant sur la renaissance par le voyage aux pays nordiques. Une aventure à vélo vers la liberté et la redécouverte de soi à travers les paysages spectaculaires de la Scandinavie.",
    "url": "https://twsyz.github.io/odyssee-nordique/documentaire.html",
-   "image": "https://twsyz.github.io/odyssee-nordique/images/odyssee-nordique-poster.jpg",
+   "image": {
+    "@type": "ImageObject",
+    "url": "https://twsyz.github.io/odyssee-nordique/images/odyssee-nordique-poster.jpg",
+    "width": 1200,
+    "height": 1800
+   },
    "genre": ["Documentaire", "Voyage", "Aventure"],
    "contentRating": "PG",
    "inLanguage": "fr-FR",
    "datePublished": "2025-01-01",
    "director": {
+    "@type": "Person",
+    "@id": "https://twsyz.github.io/odyssee-nordique/a-propos.html",
+    "name": "JACOB Yvan"
+   },
+   "producer": {
     "@type": "Person",
     "name": "JACOB Yvan"
    }
@@ -59,9 +81,59 @@
    "@type": "Person",
    "@id": "https://twsyz.github.io/odyssee-nordique/a-propos.html",
    "name": "JACOB Yvan",
-   "url": "https://twsyz.github.io/odyssee-nordique",
-   "jobTitle": "Realisateur & Producteur",
-   "description": "Createur de L'Odyssee Nordique - Un documentaire sur le voyage et la transformation personnelle"
+   "url": "https://twsyz.github.io/odyssee-nordique/a-propos.html",
+   "jobTitle": "Réalisateur & Producteur",
+   "description": "Créateur de L'Odyssée Nordique - Un documentaire inspirant sur le voyage, la renaissance et la transformation personnelle à travers une épopée cyclotouriste aux pays nordiques.",
+   "sameAs": [
+    "https://www.facebook.com/odysseenordique",
+    "https://www.instagram.com/odysseenordique",
+    "https://www.youtube.com/c/odysseenordique"
+   ]
+  },
+  {
+   "@type": "Event",
+   "@id": "https://twsyz.github.io/odyssee-nordique/voyage.html",
+   "name": "L'Odyssée Nordique - Voyage en Vélo",
+   "description": "Suivez l'itinéraire d'aventure à vélo à travers les pays nordiques. Une épopée cyclotouriste de 5 000 kilomètres à travers la Norvège, la Suède et la Finlande.",
+   "url": "https://twsyz.github.io/odyssee-nordique/voyage.html",
+   "image": {
+    "@type": "ImageObject",
+    "url": "https://twsyz.github.io/odyssee-nordique/images/odyssee-nordique-thumbnail.jpg",
+    "width": 1200,
+    "height": 630
+   },
+   "eventType": "TravelEvent",
+   "organizer": {
+    "@type": "Person",
+    "name": "JACOB Yvan",
+    "url": "https://twsyz.github.io/odyssee-nordique/a-propos.html"
+   },
+   "location": {
+    "@type": "Place",
+    "name": "Pays Nordiques",
+    "geo": {
+     "@type": "GeoShape",
+     "box": "59.9139 10.7522 70.8621 31.0921"
+    }
+   }
+  },
+  {
+   "@type": "EventSeries",
+   "@id": "https://twsyz.github.io/odyssee-nordique/projections.html",
+   "name": "L'Odyssée Nordique - Projections",
+   "description": "Découvrez les dates et lieux des projections du documentaire L'Odyssée Nordique dans toute la France.",
+   "url": "https://twsyz.github.io/odyssee-nordique/projections.html",
+   "image": {
+    "@type": "ImageObject",
+    "url": "https://twsyz.github.io/odyssee-nordique/images/odyssee-nordique-thumbnail.jpg",
+    "width": 1200,
+    "height": 630
+   },
+   "organizer": {
+    "@type": "Organization",
+    "name": "L'Odyssée Nordique",
+    "@id": "https://twsyz.github.io/odyssee-nordique/#organization"
+   }
   }
  ]
 }
