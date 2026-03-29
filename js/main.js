@@ -144,7 +144,7 @@ function setupRouteAnimation() {
             
             // Mettre à jour la barre de progression
             if (progressFill) {
-                progressFill.style.width = (progress * 100) + '%';
+                progressFill.style.height = (progress * 100) + '%';
             }
             
             // Mettre à jour le pourcentage
@@ -196,12 +196,24 @@ function setupRouteAnimation() {
         
         // Gestion du scroll
         function handleScroll() {
-
-            const rect = routeSection.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-
-            let progress = (windowHeight - rect.top) / rect.height;
-
+            const scrollSpacer = document.getElementById('scrollSpacer');
+            
+            if (!scrollSpacer || !routeSection) {
+                // Fallback sur l'ancienne méthode
+                const rect = routeSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                let progress = (windowHeight - rect.top) / (rect.height + windowHeight);
+                progress = Math.max(0, Math.min(1, progress));
+                updateRoute(progress);
+                return;
+            }
+            
+            // Méthode basée sur scrollSpacer - commence au TOP de la section
+            const sectionTop = routeSection.offsetTop;
+            const spacerHeight = scrollSpacer.offsetHeight;
+            const scrollY = window.scrollY;
+            
+            let progress = (scrollY - sectionTop) / spacerHeight;
             progress = Math.max(0, Math.min(1, progress));
 
             updateRoute(progress);
