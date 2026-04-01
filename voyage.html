@@ -107,8 +107,21 @@
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="documentaire.html">Le documentaire</a></li>
                     <li><a href="projections.html">Projections</a></li>
-                    <li><a href="voyage.html" class="active">Le voyage</a></li>
-                    <li><a href="a-propos.html">À propos</a></li>
+                    <li class="nav-dropdown">
+                        <a href="voyage.html" class="active">Le voyage</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#stats-section">Côté statistique</a></li>
+                            <li><a href="#philosophy-section">Notre philosophie du voyage</a></li>
+                            <li><a href="#transport-section">Vélo + train / bus en Europe</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="a-propos.html">À propos</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="a-propos.html#who-we-are">Qui sommes-nous ?</a></li>
+                            <li><a href="a-propos.html#vision">Notre vision de la mobilité</a></li>
+                        </ul>
+                    </li>
                     <li><a href="contact.html" class="nav-contact">Contact</a></li>
                 </ul>
             </nav>
@@ -119,7 +132,7 @@
         <section class="page-header">
             <div class="container">
                 <h1>Le voyage</h1>
-                <p class="page-subtitle">5 000 kilomètres à vélo à travers l'Europe du Nord</p>
+                <p class="page-subtitle">Une épopée nordique</p>
             </div>
         </section>
 
@@ -131,108 +144,216 @@
                 <p>Scrollez pour parcourir notre aventure</p>
             </div>
             
-            <div class="route-svg-wrapper">
-                <svg class="route-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#9B8E6E"/>
-                            <stop offset="50%" stop-color="#C4B58C"/>
-                            <stop offset="100%" stop-color="#E8D9B0"/>
-                        </linearGradient>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                            <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    
-                    <!-- Carte de fond -->
-                    <rect x="50" y="50" width="900" height="400" fill="#FDFBF7" rx="20" ry="20" stroke="#E5E0D0" stroke-width="2"/>
-                    
-                    <!-- Route de fond (grise) -->
-                    <path id="route-bg" class="route-bg" 
-                          d="M 120,250 L 220,200 L 320,230 L 420,180 L 520,210 L 620,170 L 720,200 L 820,180 L 920,220" 
-                          stroke="#E5E0D0" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    
-                    <!-- Route animée (dorée) -->
-                    <path id="route-fill" class="route-fill" 
-                          d="M 120,250 L 220,200 L 320,230 L 420,180 L 520,210 L 620,170 L 720,200 L 820,180 L 920,220" 
-                          stroke="url(#routeGradient)" stroke-width="8" fill="none" 
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                    
-                    <!-- Points d'étape -->
-                    <g class="waypoints-group">
-                        <circle cx="120" cy="250" r="8" fill="#9B8E6E" class="waypoint" data-city="Oslo" data-index="0"/>
-                        <text x="100" y="230" class="waypoint-label">Oslo</text>
-                        
-                        <circle cx="220" cy="200" r="6" fill="#9B8E6E" class="waypoint" data-city="Lillehammer" data-index="1"/>
-                        <text x="200" y="180" class="waypoint-label">Lillehammer</text>
-                        
-                        <circle cx="320" cy="230" r="6" fill="#9B8E6E" class="waypoint" data-city="Trondheim" data-index="2"/>
-                        <text x="300" y="210" class="waypoint-label">Trondheim</text>
-                        
-                        <circle cx="420" cy="180" r="6" fill="#9B8E6E" class="waypoint" data-city="Bodø" data-index="3"/>
-                        <text x="400" y="160" class="waypoint-label">Bodø</text>
-                        
-                        <circle cx="520" cy="210" r="6" fill="#9B8E6E" class="waypoint" data-city="Tromsø" data-index="4"/>
-                        <text x="500" y="190" class="waypoint-label">Tromsø</text>
-                        
-                        <circle cx="620" cy="170" r="6" fill="#9B8E6E" class="waypoint" data-city="Nordkapp" data-index="5"/>
-                        <text x="600" y="150" class="waypoint-label">Nordkapp</text>
-                        
-                        <circle cx="720" cy="200" r="6" fill="#9B8E6E" class="waypoint" data-city="Rovaniemi" data-index="6"/>
-                        <text x="700" y="180" class="waypoint-label">Rovaniemi</text>
-                        
-                        <circle cx="820" cy="180" r="6" fill="#9B8E6E" class="waypoint" data-city="Helsinki" data-index="7"/>
-                        <text x="800" y="160" class="waypoint-label">Helsinki</text>
-                        
-                        <circle cx="920" cy="220" r="8" fill="#9B8E6E" class="waypoint" data-city="Stockholm" data-index="8"/>
-                        <text x="900" y="200" class="waypoint-label">Stockholm</text>
-                    </g>
-                    
-                    <!-- Petits cercles décoratifs (villes secondaires) -->
-                    <g class="secondary-cities">
-                        <circle cx="170" cy="225" r="4" fill="#D4C9B0"/>
-                        <circle cx="270" cy="215" r="4" fill="#D4C9B0"/>
-                        <circle cx="370" cy="205" r="4" fill="#D4C9B0"/>
-                        <circle cx="470" cy="195" r="4" fill="#D4C9B0"/>
-                        <circle cx="570" cy="190" r="4" fill="#D4C9B0"/>
-                        <circle cx="670" cy="185" r="4" fill="#D4C9B0"/>
-                        <circle cx="770" cy="190" r="4" fill="#D4C9B0"/>
-                        <circle cx="870" cy="200" r="4" fill="#D4C9B0"/>
-                    </g>
-                </svg>
-            </div>
-            
-            <!-- Indicateur de progression -->
-            <div class="route-progress">
-                <div class="progress-info">
-                    <div class="current-city">
-                        <span class="city-label">Étape actuelle :</span>
-                        <span class="city-name" id="currentCity">Oslo</span>
-                    </div>
-                    <div class="progress-percentage" id="progressPercentage">0%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="route-stats">
-                    <div class="stat">
-                        <span class="stat-value" id="distanceCovered">0</span>
-                        <span class="stat-label">km parcourus</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value" id="citiesReached">1</span>
-                        <span class="stat-label">villes visitées</span>
+            <div class="route-map-wrapper">
+                <div class="route-map-container">
+                    <img src="carte_trace/carte.png" alt="Carte itinéraire" class="route-map" width="600" height="400" loading="lazy">
+                    <svg class="route-trace-overlay" viewBox="0 0 600 400">
+                        <defs>
+                            <mask id="routeMask">
+                                <rect id="routeReveal" x="0" y="400" width="600" height="0" fill="white"/>
+                            </mask>
+                        </defs>
+                        <image href="carte_trace/trace.png" x="0" y="0" width="600" height="400" mask="url(#routeMask)"/>
+                    </svg>
+                    <div class="route-vertical-slider">
+                        <div class="slider-track">
+                            <div class="slider-progress"></div>
+                        </div>
+                        <div class="slider-thumb"></div>
+                        <div class="slider-percentage"><span id="routePercent">0</span>%</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-spacer" id="scrollSpacer"></div>
     </div>
 </section>
+
+       
+
+        <section class="stats-map" id="stats-section">
+            <div class="container">
+                <h2>Chiffres clés</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">7 340</div>
+                        <div class="stat-label">Kilomètres parcourus</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">123</div>
+                        <div class="stat-label">Jours sur la route</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">73 000</div>
+                        <div class="stat-label">Mètres de dénivelé positif</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Pays traversés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">86</div>
+                        <div class="stat-label">Nuits en bivouac</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">34</div>
+                        <div class="stat-label">Nuits chez l'habitant</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Nuits en camping</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">65€</div>
+                        <div class="stat-label">Dépensés à 2 en logement</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mechanical-problems">
+            <div class="container">
+                <h2>Problèmes mécaniques en 7 300 km</h2>
+                <p style="text-align: center; font-size: 1.05rem; color: #666; margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;">Un aperçu des défis mécaniques rencontrés sur la route. Chaque problème a été une opportunité d'apprentissage et de résilience.</p>
+                
+                <div style="display: flex; gap: 40px; align-items: flex-start; justify-content: center; flex-wrap: wrap;">
+                    <div style="flex: 0 1 350px; text-align: center;">
+                        <img src="images/probleme_meca.jpg" alt="Problèmes mécaniques" style="max-width: 100%; height: auto; border-radius: 12px;" loading="lazy">
+                    </div>
+                    
+                    <div style="flex: 1 1 auto; min-width: 400px;">
+                        <div class="mechanics-grid">
+                            <div class="mechanic-card">
+                                <div class="mechanic-header">
+                                    <div class="mechanic-avatar">H</div>
+                                    <h3>Vélo d'Hector</h3>
+                                </div>
+                                <ul class="mechanic-list">
+                                    <li><span class="problem-icon">⚙️</span> 2 crevaisons</li>
+                                    <li><span class="problem-icon">⚙️</span> 2 pédales cassées</li>
+                                    <li><span class="problem-icon">⚙️</span> 4 problèmes de roulements sur la roue arrière</li>
+                                    <li><span class="problem-icon">⚙️</span> 1 câble de dérailleur cassé</li>
+                                </ul>
+                                <div class="mechanic-count">4 types de problèmes</div>
+                            </div>
+
+                            <div class="mechanic-card">
+                                <div class="mechanic-header">
+                                    <div class="mechanic-avatar">A</div>
+                                    <h3>Vélo d'Aloïs</h3>
+                                </div>
+                                <ul class="mechanic-list">
+                                    <li><span class="problem-icon">⚙️</span> 1 chaîne cassée (et dérive chaîne)</li>
+                                    <li><span class="problem-icon">⚙️</span> 1 câble de dérailleur cassé</li>
+                                    <li><span class="problem-icon">⚙️</span> 1 rayon cassé</li>
+                                    <li><span class="problem-icon">⚙️</span> 1 nouveau boîtier de pédalier</li>
+                                    <li><span class="problem-icon">⚙️</span> 2 nouveaux plateaux</li>
+                                    <li><span class="problem-icon">⚙️</span> 2 problèmes de roulements sur la roue arrière</li>
+                                    <li><span class="problem-icon">⚙️</span> 1 nouveau disque de frein avant</li>
+                                </ul>
+                                <div class="mechanic-count">7 types de problèmes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="philosophy-section" id="philosophy-section">
+            <div class="container">
+                <h2>Rebâtir un imaginaire du voyage</h2>
+                <p style="text-align: center; font-size: 1.05rem; color: #666; margin-bottom: 70px; max-width: 800px; margin-left: auto; margin-right: auto;">Le voyage à vélo nous a offert des enseignements profonds sur notre rapport au temps, à la nature et à la liberté. Voici ce qu'il nous a appris.</p>
+                
+                <div class="carousel-3d-wrapper">
+                    <button class="carousel-arrow carousel-arrow-left" aria-label="Précédent">‹</button>
+                    
+                    <div class="carousel-3d-container">
+                        <div class="carousel-3d" id="philosophyCarousel">
+                            <!-- Slide 1 -->
+                            <div class="carousel-3d-slide">
+                                <div class="carousel-card">
+                                    <div class="carousel-image-top">
+                                        <img src="images/voyage1.jpg" alt="La liberté d'avoir le temps" width="350" height="280" loading="lazy">
+                                    </div>
+                                    <div class="carousel-header-vertical">
+                                        <span class="carousel-number-circle">01</span>
+                                        <h3>La liberté d'avoir le temps</h3>
+                                    </div>
+                                    <div class="carousel-text">
+                                        <p>Partir à vélo c'est choisir d'avoir le temps. Le trajet fait partie intégrante du voyage. On capture des instants de vie que l'on n'aurait jamais vus autrement : une vache jouant dans un champ, un renne au détour d'un bosquet.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="carousel-3d-slide">
+                                <div class="carousel-card">
+                                    <div class="carousel-image-top">
+                                        <img src="images/voyage2.jpg" alt="L'inattendu" width="350" height="280" loading="lazy">
+                                    </div>
+                                    <div class="carousel-header-vertical">
+                                        <span class="carousel-number-circle">02</span>
+                                        <h3>L'inattendu</h3>
+                                    </div>
+                                    <div class="carousel-text">
+                                        <p>Les plus belles expériences sont celles qu'on n'attend pas. Une montagne inconnue qui se dévoile au détour d'un virage. Les dunes de la côte ouest du Danemark à perte de vue. La surprise crée des émotions exaltées.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="carousel-3d-slide">
+                                <div class="carousel-card">
+                                    <div class="carousel-image-top">
+                                        <img src="images/voyage3.jpg" alt="Les distances" width="350" height="280" loading="lazy">
+                                    </div>
+                                    <div class="carousel-header-vertical">
+                                        <span class="carousel-number-circle">03</span>
+                                        <h3>Les distances</h3>
+                                    </div>
+                                    <div class="carousel-text">
+                                        <p>La France, qui semblait si grande, peut être traversée en quelques semaines à vélo avec nos jambes. Un endroit à 5 jours de vélo devient "à côté", alors qu'avant, 5h de voiture nous semblaient loin.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="carousel-3d-slide">
+                                <div class="carousel-card">
+                                    <div class="carousel-image-top">
+                                        <img src="images/voyage5.jpg" alt="La nature" width="350" height="280" loading="lazy">
+                                    </div>
+                                    <div class="carousel-header-vertical">
+                                        <span class="carousel-number-circle">04</span>
+                                        <h3>La nature</h3>
+                                    </div>
+                                    <div class="carousel-text">
+                                        <p>On passe la plupart du temps dans la nature, vulnérables et petits face à son immensité. Mais cette nature offre des spectacles éphémères inoubliables : le soleil de minuit, les cascades rugissantes, les arc-en-ciels.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 5 -->
+                            <div class="carousel-3d-slide">
+                                <div class="carousel-card">
+                                    <div class="carousel-image-top">
+                                        <img src="images/voyage4.jpg" alt="Vivre pleinement" width="350" height="280" loading="lazy">
+                                    </div>
+                                    <div class="carousel-header-vertical">
+                                        <span class="carousel-number-circle">05</span>
+                                        <h3>Vivre pleinement</h3>
+                                    </div>
+                                    <div class="carousel-text">
+                                        <p>Ce quotidien contrasté nous fait vivre pleinement, en profitant de chaque chose qui nous est donnée. Du début à la fin, nos pensées restaient dans le moment présent. Les priorités se réduisent à l'essentiel.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-arrow carousel-arrow-right" aria-label="Suivant">›</button>
+                </div>
+            </div>
+        </section>
 
         <section class="travel-philosophy">
             <div class="container">
@@ -240,86 +361,45 @@
                 <div class="philosophy-grid">
                     <div class="philosophy-item">
                         <div class="philosophy-icon">◆</div>
+                        <h3>Itinéraire</h3>
+                        <p>Rien n’est planifié d’avance en partant. Nous avons une carte papier par pays et faisons un point sur l’itinéraire à suivre toutes les dizaines de jours environs. Les rencontres et la météo agissant alors comme derniers décideurs de notre route et arrêts.</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <div class="philosophy-icon">◆</div>
                         <h3>Bivouac</h3>
-                        <p>Nuits sous la tente au cœur de la nature, réveils face aux fjords et aux forêts boréales.</p>
+                        <p>En démarrant une nouvelle journée, nous savons rarement où nous dormons le soir. Lorsque nous avons envie de nous arrêter, nous commençons à chercher ou à demander un endroit où poser notre tente. La scandinavie nous a offert des spots aux paysages incroyables.</p>
                     </div>
                     <div class="philosophy-item">
                         <div class="philosophy-icon">◆</div>
                         <h3>Warmshowers</h3>
-                        <p>Accueillis par des cyclistes locaux, des rencontres authentiques et des moments de partage uniques.</p>
-                    </div>
-                    <div class="philosophy-item">
-                        <div class="philosophy-icon">◆</div>
-                        <h3>Improvisation</h3>
-                        <p>Pas d'itinéraire figé, juste une direction et la liberté de s'adapter aux rencontres et aux opportunités.</p>
+                        <p>Par moments, nous utilisons le réseau d’hébergement Warmshowers. Nous sommes alors accueillis par des cyclistes locaux, permettant de beaux moments de partage et un peu de confort.</p>
                     </div>
                     <div class="philosophy-item">
                         <div class="philosophy-icon">◆</div>
                         <h3>Rencontres</h3>
-                        <p>Le voyage comme prétexte à l'échange, à la découverte de l'autre et de ses histoires.</p>
+                        <p>Un vélo chargé pour briser la glace. Cela ouvre la porte à de merveilleuses rencontres spontanées et authentiques au bord de notre route. Et rapidement, nous nous voyons offrir un lit douillet, un café, une bière, un petit-déjeuner, etc…</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="stats-map">
-            <div class="container">
-                <h2>Chiffres clés</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">5 200</div>
-                        <div class="stat-label">Kilomètres parcourus</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">94</div>
-                        <div class="stat-label">Jours sur la route</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4</div>
-                        <div class="stat-label">Pays traversés</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">35+</div>
-                        <div class="stat-label">Nuits chez l'habitant</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gear">
-            <div class="container">
-                <h2>Notre équipement</h2>
-                <div class="gear-grid">
-                    <div class="gear-item">
-                        <img src="https://picsum.photos/id/0/400/300" alt="Vélos" width="400" height="300" loading="lazy">
-                        <h3>Vélos</h3>
-                        <p>Vélos de voyage sur mesure, équipés pour affronter tous les terrains et toutes les conditions.</p>
-                    </div>
-                    <div class="gear-item">
-                        <img src="https://picsum.photos/id/128/400/300" alt="Tente" width="400" height="300" loading="lazy">
-                        <h3>Tente Hilleberg</h3>
-                        <p>Tente 4 saisons résistante aux vents nordiques et aux températures négatives.</p>
-                    </div>
-                    <div class="gear-item">
-                        <img src="https://picsum.photos/id/116/400/300" alt="Sacoches" width="400" height="300" loading="lazy">
-                        <h3>Sacoches Ortlieb</h3>
-                        <p>Étanches et robustes, pour protéger l'équipement dans toutes les conditions.</p>
-                    </div>
-                    <div class="gear-item">
-                        <img src="https://picsum.photos/id/20/400/300" alt="Matériel photo" width="400" height="300" loading="lazy">
-                        <h3>Matériel photo</h3>
-                        <p>Caméra, drone, micros - tout pour capturer l'essence du voyage.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="return-europe">
+        <section class="return-europe" id="transport-section">
             <div class="container">
                 <h2>Retour en Europe</h2>
                 <div class="two-columns">
                     <div class="column-text">
-                        <p>Après 4 mois d'aventure, le retour s'est fait en train et en bus, une transition douce vers la sédentarité. Un choix assumé pour un voyage plus responsable et une réflexion sur les alternatives au voyage aérien.</p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 20px;">
+                            <strong>Un fois le Cap Nord atteint,</strong> nous avons commencé à prendre la direction du Sud avec nos vélos. Une dizaine de jours plus tard et 800 km plus loin, nous avions rejoint la ville de <strong>Rovaniemi en Finlande</strong>, synonyme de première ville avec un train.
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 20px;">
+                            De là-bas, <strong>Hector est rentré en bus et en trains en France,</strong> tandis que <strong>Aloïs finira la boucle à vélo,</strong> pour un total de <strong>7 mois de voyage</strong> et <strong>14 200 kilomètres.</strong>
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 20px;">
+                            Également, lors du voyage, <strong>plusieurs personnes nous ont rejoints.</strong> Nous vous proposons ici de détailler leurs itinéraires et celui d'Hector, offrant une <strong>alternative à l'avion.</strong> L'ensemble des trajets a été réalisé avec un vélo, nécessitant une réservation obligatoire additionnelle (formalités propres à chaque compagnie).
+                        </p>
+                        <a href="https://www.rome2rio.com" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 28px; background-color: #9B8E6E; color: white; text-decoration: none; border-radius: 30px; font-weight: 500; font-size: 0.95rem; transition: all 0.3s ease; border: 2px solid #9B8E6E; cursor: pointer;" onmouseover="this.style.backgroundColor='#7A6E54'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(155, 142, 110, 0.2)'" onmouseout="this.style.backgroundColor='#9B8E6E'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                            Découvrir Rome2Rio →
+                        </a>
                         <div class="transport-logos">
                             <span class="transport-logo">SNCF</span>
                             <span class="transport-logo">FlixBus</span>
@@ -328,7 +408,97 @@
                         </div>
                     </div>
                     <div class="column-image">
-                        <img src="https://picsum.photos/id/42/600/400" alt="Retour en train" width="600" height="400" loading="lazy">
+                        <img src="images/retour_europe.jpg" alt="Retour en train" width="600" height="400" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Trajet Hector -->
+        <section class="section-content">
+            <div class="container">
+                <h2 class="section-title">De la Laponie Finlandaise à la France : Rovaniemi → Strasbourg</h2>
+                <div class="two-columns">
+                    <div class="column-text">
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #E8DCC4;">
+                            <strong>Hector prendra son temps lors du retour en France</strong> et en profitera pour <strong>visiter l'Europe de l'Est.</strong>
+                        </p>
+                        <div style="display: grid; gap: 16px;">
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">1</div>
+                                <div><strong style="color: #3D3B37;">Rovaniemi - Helsinki</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">Train de nuit (compagnie VR)</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">2</div>
+                                <div><strong style="color: #3D3B37;">Helsinki - Tallinn</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">Ferry</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">3</div>
+                                <div><strong style="color: #3D3B37;">Tallin - Riga</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">FlixBus</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">4</div>
+                                <div><strong style="color: #3D3B37;">Riga - Vilnius</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">FlixBus</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">5</div>
+                                <div><strong style="color: #3D3B37;">Vilnius - Cracovie</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">FlixBus</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">6</div>
+                                <div><strong style="color: #3D3B37;">Cracovie - Prague</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">Train de nuit (compagnie <em>Leo express</em>)</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">7</div>
+                                <div><strong style="color: #3D3B37;">Prague - Strasbourg</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">Train de nuit Prague - Offenburg puis train régional Offenburg - Strasbourg (compagnie: <em>Deutsche Bahn</em>)</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-image">
+                        <img src="images/voyage_trajet1.jpg" alt="Trajet Hector - Rovaniemi à Strasbourg" loading="lazy" style="max-width: 280px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Trajet Lucille -->
+        <section class="section-content">
+            <div class="container">
+                <h2 class="section-title">Des îles Lofoten / îles Vesteralen à la France : Sortland → Lorient</h2>
+                <div class="two-columns">
+                    <div class="column-text">
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #E8DCC4;">
+                            <strong>Lucille nous a rejoint durant trois semaines et demi</strong> pour <strong>pédaler avec nous sur la côte Ouest de la Norvège.</strong>
+                        </p>
+                        <div style="display: grid; gap: 16px;">
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">1</div>
+                                <div><strong style="color: #3D3B37;">Sortland - Bodø</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">Bus Reis Nordland (vélo accepté dans le bus)</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">2</div>
+                                <div><strong style="color: #3D3B37;">Bodø - Trondheim</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">Train de jour (compagnie VY)</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">3</div>
+                                <div><strong style="color: #3D3B37;">Trondheim - Oslo</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">Train de nuit (compagnie VY)</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">4</div>
+                                <div><strong style="color: #3D3B37;">Oslo - Hambourg</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">FlixBus de nuit</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">5</div>
+                                <div><strong style="color: #3D3B37;">Hambourg - Paris</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">FlixBus de nuit</p></div>
+                            </div>
+                            <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="min-width: 32px; height: 32px; background-color: #9B8E6E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">6</div>
+                                <div><strong style="color: #3D3B37;">Paris - Lorient</strong><p style="margin: 4px 0 0 0; color: #666; font-size: 0.95rem;">Train TGV (SNCF)</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-image">
+                        <img src="images/voyage_trajet2.jpg" alt="Trajet Lucille - Sortland à Lorient" loading="lazy" style="max-width: 280px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                     </div>
                 </div>
             </div>

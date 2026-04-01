@@ -98,8 +98,21 @@
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="documentaire.html">Le documentaire</a></li>
                     <li><a href="projections.html">Projections</a></li>
-                    <li><a href="voyage.html">Le voyage</a></li>
-                    <li><a href="a-propos.html" class="active">À propos</a></li>
+                    <li class="nav-dropdown">
+                        <a href="voyage.html">Le voyage</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="voyage.html#stats-section">Côté statistique</a></li>
+                            <li><a href="voyage.html#philosophy-section">Notre philosophie du voyage</a></li>
+                            <li><a href="voyage.html#transport-section">Vélo + train / bus en Europe</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="a-propos.html" class="active">À propos</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="a-propos.html#who-we-are">Qui sommes-nous ?</a></li>
+                            <li><a href="a-propos.html#vision">Notre vision de la mobilité</a></li>
+                        </ul>
+                    </li>
                     <li><a href="contact.html" class="nav-contact">Contact</a></li>
                 </ul>
             </nav>
@@ -110,41 +123,50 @@
         <section class="page-header">
             <div class="container">
                 <h1>À propos</h1>
-                <p class="page-subtitle">Qui sommes-nous et quelle est notre vision ?</p>
+                <p class="page-subtitle">Qui sommes-nous et quelle est notre vision de la mobilité?</p>
             </div>
         </section>
 
-        <section class="who-we-are">
+        <section class="who-we-are" id="who-we-are">
             <div class="container">
                 <h2>Qui sommes-nous ?</h2>
                 <div class="two-columns">
                     <div class="column-text">
-                        <p>Nous sommes Aloïs et Hector, deux amis de longue date, passionnés de voyage et de vélo. Après plusieurs années à courir après des carrières prenantes, nous avons ressenti le besoin de ralentir, de nous reconnecter à l'essentiel et de reprendre la route.</p>
-                        <p>L'Odyssée Nordique est née de cette envie de liberté, de cette quête de sens à travers le voyage lent. Pendant 4 mois, nous avons traversé les paysages grandioses de l'Europe du Nord, à la rencontre des habitants et de nous-mêmes.</p>
-                        <p>Aujourd'hui, nous partageons cette aventure à travers ce documentaire, pour inspirer d'autres à oser prendre la route, à repenser leur rapport à la mobilité et à la nature.</p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 20px;">
+                            Nous sommes <strong>Hector et Aloïs.</strong> Notre histoire d'amitié a commencé dans l'Est de la France, à <strong>Nancy,</strong> lors de nos études en classe préparatoire de 2016 à 2018. Devenus <strong>ingénieurs,</strong> nos routes ne s'écartent jamais trop longtemps, réunis par notre <strong>passion du vélo</strong> et notre goût de la simplicité. Donnant de notre temps dans des <strong>ateliers associatifs d'auto-réparation de vélos,</strong> nous avons à cœur de transmettre ces valeurs et d'essayer de rendre notre monde <strong>plus cyclable!</strong>
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 20px;">
+                            Nos envies d'aventure nous mènent à nous embarquer dans <strong>plusieurs virées à vélo,</strong> plus ou moins longues, en France ou dans les pays voisins d'Europe, soudant notre amitié. Dans ce mode de voyage, nous découvrons un formidable moyen de <strong>s'évader, de prendre le temps, de se sentir libre,</strong> et de vivre pleinement au gré des rencontres inopinées. À l'<strong>automne 2024,</strong> le projet d'aller au <strong>Cap Nord</strong> prend forme, et dans nos appartements de Lorient et de Nantes, le rêve de rejoindre, à vélo, les <strong>terres les plus septentrionales d'Europe continentale</strong> devient doucement une réalité.
+                        </p>
                     </div>
                     <div class="column-image">
-                        <img src="https://picsum.photos/id/169/600/400" alt="Aloïs et Hector">
+                        <img src="images/a-propos1.jpg" alt="Aloïs et Hector" loading="lazy" style="max-width: 100%; height: auto; border-radius: 12px;">
                     </div>
                 </div>
                 
                 <div class="fun-boxes">
                     <div class="fun-box">
                         <div class="fun-box-header">
-                            <img src="https://picsum.photos/id/91/150/150" alt="Aloïs">
+                            <img src="images/alois.png" alt="Aloïs">
                             <h3>Aloïs vu par Hector</h3>
                         </div>
                         <div class="fun-box-content">
-                            <p>"Aloïs est le stratège du groupe. Toujours un plan B (et C, et D) dans sa poche. Il est capable de réparer n'importe quoi avec du scotch et de la ficelle. Son super-pouvoir : trouver le meilleur spot de bivouac à des kilomètres à la ronde. Son seul défaut : il est incorrigiblement matinal. Se lever avec le soleil, c'est son credo. Même quand il neige."</p>
+                            <p>"Mettez Aloïs sur un vélo, et il sera heureux. Avec lui, pas besoin de s'embarrasser du superflu : Il aspire au retour à l’essentiel, au plaisir simple des couchers de soleil et des siestes dans les salles d’attente de ferry. Vous voulez lui proposer une nuit dans un airbnb ou un camping? Bonne chance. Pourquoi se compliquer la vie quand la nature vous offre un carré d’herbe au bord d’une rivière? 
+Son secret : jamais de baisse de moral tant que le voyage n’est pas fini. La pluie aurait sûrement eu raison de moi s’il n’avait pas eu les mots justes pour me remotiver!
+Son point faible : Il n’aime pas les contraintes matérielles et le matériel ne l’aime pas. Une des seules choses sur terre pouvant l’énerver est le matériel trop peu durable, qui lui casse trop souvent entre les doigts."
+</p>
                         </div>
                     </div>
                     <div class="fun-box">
                         <div class="fun-box-header">
-                            <img src="https://picsum.photos/id/155/150/150" alt="Hector">
+                            <img src="images/hector.jpg" alt="Hector">
                             <h3>Hector vu par Aloïs</h3>
                         </div>
                         <div class="fun-box-content">
-                            <p>"Hector, c'est l'âme du voyage. Il parle à tout le monde, des pêcheurs norvégiens aux éleveurs de rennes samis. Il a une mémoire incroyable pour les histoires et les prénoms. Son point faible : il est incapable de lire une carte sans la tourner dans tous les sens. Mais il compense par un optimisme à toute épreuve et un sens de l'orientation qui finit toujours par nous mener là où il faut."</p>
+                            <p>"Hector, c’est la définition même de l’endurance sur un vélo, à condition qu’il soit nourri régulièrement et en quantité démentielle. Il a toujours peur de manquer de nourriture lorsque nous faisons les courses… A l’inverse, sa raison a pu parfois modérer mon enthousiasme parfois démesuré sur un vélo. Son expérience de cinéaste amateur nous a entraîné dans une aventure cinématographique avec la réalisation d’un documentaire, entraînant son lot de rencontres et de connaissances sur la mobilité cyclable en Europe du Nord.
+Son secret : le chef Hector nous a apporté des idées repas très variées alors que j’aurais pu traverser l’Europe en mangeant uniquement des pâtes pesto. 
+Son point faible : il est incapable de stocker du gras et a donc très vite froid, ce qui est très peu pratique et peu facile à gérer en Norvège.
+"</p>
                         </div>
                     </div>
                 </div>
@@ -153,31 +175,98 @@
 
         <section id="vision" class="vision">
             <div class="container">
-                <h2>Notre vision</h2>
-                <div class="vision-content">
-                    <h3>Pour une mobilité cyclable</h3>
-                    <div class="vision-stats">
-                        <div class="vision-stat">
-                            <div class="vision-stat-number">78%</div>
-                            <div class="vision-stat-text">des trajets de moins de 5 km en France sont effectués en voiture</div>
-                        </div>
-                        <div class="vision-stat">
-                            <div class="vision-stat-number">2%</div>
-                            <div class="vision-stat-text">seulement de la part modale du vélo dans les déplacements quotidiens</div>
-                        </div>
-                        <div class="vision-stat">
-                            <div class="vision-stat-number">+50%</div>
-                            <div class="vision-stat-text">de cyclistes dans les villes ayant investi dans des infrastructures adaptées</div>
-                        </div>
+                <h2>Notre vision de la mobilité</h2>
+                
+                <!-- Section 1: L'avenir du vélo -->
+                <div class="two-columns" style="margin-bottom: 60px;">
+                    <div class="column-text">
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #E8DCC4;">
+                            <strong>L'avenir de la mobilité</strong> doit être dirigé vers des <strong>modes de transport plus doux et plus sobres.</strong>
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 20px;">
+                            Dans un monde aux ressources limitées, et bouleversé par la <strong>crise écologique en cours,</strong> nous pensons que ce documentaire invite à questionner notre rapport au temps, à l'énergie, à la technologie. Il veut également montrer qu'en voyage, <strong>le dépaysement peut être trouvé sans avoir besoin de recourir à l'avion ou à la voiture.</strong>
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37;">
+                            <strong>Le vélo dispose d'avantages sur de nombreux plans :</strong> Économiquement accessibles, facilement réparables, silencieux, durables dans le temps, luttant contre la sédentarité, invitant à ralentir le rythme. Le choix de passer par des pays ambitieux en termes d'aménagements cyclables, comme <strong>l'Allemagne et le Danemark,</strong> permet d'illustrer ces propos et de montrer des <strong>exemples inspirants chez nos voisins européens.</strong>
+                        </p>
                     </div>
-                    <div class="vision-text">
-                        <p>Nous croyons en un monde où la mobilité douce n'est plus une alternative marginale, mais une évidence. Le vélo n'est pas seulement un moyen de transport : c'est un outil de transformation personnelle et collective.</p>
-                        <p>À travers ce documentaire, nous souhaitons contribuer à <strong>rebâtir un imaginaire autour du voyage à vélo</strong>. Un imaginaire où l'aventure n'est pas réservée à une élite sportive, mais accessible à tous. Où prendre le temps devient une force, et où la route nous révèle autant qu'elle nous transforme.</p>
-                        <div class="vision-links">
-                            <a href="https://www.fub.fr" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Fédération Française des Usagers de la Bicyclette (FUB)</a>
-                            <a href="https://www.placeauvelo.fr" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Place au Vélo</a>
-                        </div>
+                    <div class="column-image">
+                        <img src="images/velo_propos1.jpg" alt="Le vélo comme solution durable" loading="lazy" style="max-width: 100%; height: auto; border-radius: 12px;">
                     </div>
+                </div>
+
+                <!-- Section 2: Redéfinir la liberté -->
+                <div class="two-columns two-columns.reverse">
+                    <div class="column-image">
+                        <img src="images/velo_propos2.jpg" alt="Liberté du vélo" loading="lazy" style="max-width: 100%; height: auto; border-radius: 12px;">
+                    </div>
+                    <div class="column-text">
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #E8DCC4;">
+                            <strong>Les limites du modèle "tout voiture"</strong>
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 20px;">
+                            Pour beaucoup, la voiture véhicule un imaginaire de liberté. Pouvoir aller où l'on veut, quand on veut. Mais est-ce une réalité ? Entre <strong>les problèmes de congestion, de sédentarité, son coût environnemental et économique</strong> (300 milliards d'euros par an pour la société en France), les limites sont apparentes.
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37; margin-bottom: 20px;">
+                            Cette pseudo liberté peut en fait cacher une <strong>dépendance :</strong> L'aménagement de nos territoires nous rend <strong>prisonniers de ce véhicule,</strong> souvent sans autre alternative possible, et exclut celles et ceux qui n'ont pas les moyens financiers d'y accéder.
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #3D3B37;">
+                            <strong>Redéfinir la liberté par le vélo :</strong> Car de toutes nos rencontres, une chose ressort systématiquement quand on leur demande ce que représente le vélo pour eux : cette <strong>liberté, souvent découverte pendant l'enfance,</strong> de pouvoir se déplacer <strong>librement, sans limite, quand et où ils veulent, à l'air libre.</strong> On rêve donc d'une <strong>vraie transition cyclable</strong> — un modèle plus inclusif, plus sobre, plus respectueux de l'environnement, et permettant plus d'échange social.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources" style="margin-top: 60px; padding: 40px 0; background-color: #FDFBF7;">
+            <div class="container">
+                <h2>Ressources et partenaires</h2>
+                <p style="margin-bottom: 30px; font-size: 16px;">Découvrez ci-dessous des associations, organismes, et acteurs qui plaident pour changer nos modes de mobilité et mettre en avant le vélo.</p>
+                <div class="resources-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <a href="https://www.fub.fr/" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">FUB - Fédération française des Usagères et Usagers de la Bicyclette</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Plateforme majeure pour les droits des cyclistes en France.</p>
+                    </a>
+                    <a href="https://reseau-velo-marche.org/" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">Réseau Vélo et Marche</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Promotion des transports actifs et des villes vertes.</p>
+                    </a>
+                    <a href="https://lesboitesavelo.org/" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">Les boites à vélo</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Auto-réparation et partage de compétences cyclistes.</p>
+                    </a>
+                    <a href="https://theses.hal.science/tel-03082127v1/document" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">Thèse d'Aurélien Bigo</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Recherche académique sur la mobilité durable.</p>
+                    </a>
+                    <a href="https://www.jeromezindy.fr/" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">Vélo-Reporter Jérôme Zindy</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Photographie et reportages sur la culture vélo.</p>
+                    </a>
+                    <a href="https://www.radiofrance.fr/franceculture/podcasts/lsd-la-serie-documentaire/et-le-bicycle-fut-4339630" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">Podcasts France Culture - La Vélo-Révolution</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Série documentaire audio sur la révolution du vélo.</p>
+                    </a>
+                    <a href="https://xd.ademe.fr/" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">Extrême Défi - ADEME</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Défi écologique et changement de comportements.</p>
+                    </a>
+                    <a href="https://www.aavp-asso.fr/" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">AAVP - Association des acteurs du vélo public</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Vélos en libre-service et transports partagés.</p>
+                    </a>
+                    <a href="https://www.af3v.org/" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">AF3V - Association Française des Véloroutes et Voies Vertes</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Réseau de voies cyclables en France.</p>
+                    </a>
+                    <a href="https://www.francevelotourisme.com/conseils/preparer-voyage-velo/voie-verte" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">France Vélo Tourisme</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Conseil sur les voyages à vélo et voies vertes.</p>
+                    </a>
+                    <a href="https://www.heureux-cyclage.org/?lang=fr" target="_blank" rel="noopener noreferrer" class="resource-card" style="padding: 24px; background: white; border-radius: 12px; text-decoration: none; color: #333; border: 2px solid #E8DCC4; transition: all 0.3s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 8px 24px rgba(155, 142, 110, 0.15)'; this.style.transform='translateY(-4px)'; this.style.borderColor='#9B8E6E';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#E8DCC4';">
+                        <h4 style="color: #9B8E6E; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4;">Réseau "l'Heureux Cyclage"</h4>
+                        <p style="font-size: 15px; color: #666; line-height: 1.6; margin-top: auto;">Réparation et diffusion du vélo solidaire.</p>
+                    </a>
                 </div>
             </div>
         </section>

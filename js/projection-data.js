@@ -14,90 +14,32 @@ const projectionsData = {
     upcoming: [
         {
             region: "ile-de-france",
-            lieu: "Cinéma Le Méliès",
-            ville: "Paris",
-            date: "15/03/2025",
-            horaire: "20:00",
-            lien: "https://www.exemple.com/melies"
-        },
-        {
-            region: "ile-de-france",
-            lieu: "Médiathèque de Montreuil",
-            ville: "Montreuil",
-            date: "22/03/2025",
-            horaire: "18:30",
-            lien: "https://www.exemple.com/mediatheque-montreuil"
+            lieu: "Festival \"Vélo in Paris\"",
+            ville: "Porte de Vincennes - Paris",
+            date: "25/04/2026",
+            horaire: "12:30",
+            lien: "https://velo-in-paris.com/"
         },
         {
             region: "auvergne",
-            lieu: "Cinéma Le Comoedia",
-            ville: "Lyon",
-            date: "05/04/2025",
-            horaire: "19:30",
-            lien: "https://www.exemple.com/comoedia"
-        },
-        {
-            region: "occitanie",
-            lieu: "Cinéma Utopia",
-            ville: "Toulouse",
-            date: "12/04/2025",
-            horaire: "20:30",
-            lien: "https://www.exemple.com/utopia"
-        },
-        {
-            region: "nouvelle-aquitaine",
-            lieu: "Cinéma Le Grand Ecran",
-            ville: "Bordeaux",
-            date: "18/04/2025",
-            horaire: "19:00",
-            lien: "https://www.exemple.com/grand-ecran"
+            lieu: "Family Cinéma",
+            ville: "Saint-Just Saint-Rambert",
+            date: "07/05/2026",
+            horaire: "20:00",
+            lien: "https://family-cinema.com/"
         },
         {
             region: "bretagne",
-            lieu: "Cinéma La Belle Equipe",
-            ville: "Rennes",
-            date: "26/04/2025",
+            lieu: "Bar Embarcadère",
+            ville: "Lorient",
+            date: "20/05/2026",
             horaire: "20:00",
-            lien: "https://www.exemple.com/belle-equipe"
-        },
-        {
-            region: "normandie",
-            lieu: "Théâtre de Caen",
-            ville: "Caen",
-            date: "03/05/2025",
-            horaire: "18:00",
-            lien: "https://www.exemple.com/theatre-caen"
-        },
-        {
-            region: "grand-est",
-            lieu: "Cinéma Star",
-            ville: "Strasbourg",
-            date: "10/05/2025",
-            horaire: "20:30",
-            lien: "https://www.exemple.com/star"
-        },
-        {
-            region: "hauts-de-france",
-            lieu: "Cinéma Le Majestic",
-            ville: "Lille",
-            date: "17/05/2025",
-            horaire: "19:30",
-            lien: "https://www.exemple.com/majestic"
+            lien: "https://www.embarcadere-lorient.org/"
         }
     ],
     
     // Projections passées
     past: [
-        {
-            lieu: "Cinéma Le Variétés",
-            ville: "Marseille",
-            date: "01/02/2025"
-        },
-        {
-            lieu: "Salle des fêtes",
-            ville: "Nantes",
-            date: "25/01/2025"
-        },
         {
             lieu: "Médiathèque de Lille",
             ville: "Lille",

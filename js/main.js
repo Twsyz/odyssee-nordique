@@ -85,6 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
     
+    // Setup Carousel 3D
+    setupPhilosophyCarousel();
+    
     // Gestion de la carte de France pour les projections
     setupFranceMap();
     
@@ -92,137 +95,75 @@ document.addEventListener('DOMContentLoaded', function() {
     setupRouteAnimation();
 });
 
-// Animation de la route interactive
+// Animation de la route - Curseur vertical pour révéler la trace
 function setupRouteAnimation() {
-    const routeSection = document.getElementById('routeSection');
-    const routeFill = document.getElementById('route-fill');
-    const progressFill = document.getElementById('progressFill');
-    const currentCitySpan = document.getElementById('currentCity');
-    const progressPercentageSpan = document.getElementById('progressPercentage');
-    const distanceCoveredSpan = document.getElementById('distanceCovered');
-    const citiesReachedSpan = document.getElementById('citiesReached');
-    const waypoints = document.querySelectorAll('.waypoint');
+    const sliderThumb = document.querySelector('.slider-thumb');
+    const sliderTrack = document.querySelector('.slider-track');
+    const sliderProgress = document.querySelector('.slider-progress');
+    const routeReveal = document.getElementById('routeReveal');
+    const routePercent = document.getElementById('routePercent');
     
-    if (!routeSection || !routeFill) return;
+    if (!sliderThumb || !sliderTrack || !sliderProgress || !routeReveal) return;
     
-    const cities = ['Oslo', 'Lillehammer', 'Trondheim', 'Bodø', 'Tromsø', 'Nordkapp', 'Rovaniemi', 'Helsinki', 'Stockholm'];
-    const distances = [0, 180, 450, 850, 1200, 1650, 2100, 2650, 3200];
-    const totalLength = routeFill.getTotalLength();
-
-    routeFill.style.strokeDasharray = totalLength;
-    routeFill.style.strokeDashoffset = totalLength;
+    let isDragging = false;
+    let trackHeight = 0;
     
-    let animationPlayed = false;
-    let currentProgress = 0;
-    
-    // Créer l'observateur pour déclencher l'animation
-    const routeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !animationPlayed) {
-                animationPlayed = true;
-                
-                // Démarrer l'animation
-                startRouteAnimation();
-                
-                // Unobserve après le début
-                routeObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    routeObserver.observe(routeSection);
-    
-    function startRouteAnimation() {
-        // Fonction de mise à jour de la route
-        function updateRoute(progress) {
-            progress = Math.max(0, Math.min(1, progress));
-            currentProgress = progress;
-            
-            // Appliquer l'animation de la route
-            const dashOffset = totalLength * (1 - progress);
-            routeFill.style.strokeDashoffset = dashOffset;
-            
-            // Mettre à jour la barre de progression
-            if (progressFill) {
-                progressFill.style.height = (progress * 100) + '%';
-            }
-            
-            // Mettre à jour le pourcentage
-            if (progressPercentageSpan) {
-                progressPercentageSpan.textContent = Math.round(progress * 100) + '%';
-            }
-            
-            // Mettre à jour la ville actuelle et les distances
-            if (progress >= 1) {
-                if (currentCitySpan) currentCitySpan.textContent = cities[cities.length - 1];
-                if (distanceCoveredSpan) distanceCoveredSpan.textContent = distances[distances.length - 1];
-                if (citiesReachedSpan) citiesReachedSpan.textContent = cities.length;
-            } else if (progress <= 0) {
-                if (currentCitySpan) currentCitySpan.textContent = cities[0];
-                if (distanceCoveredSpan) distanceCoveredSpan.textContent = distances[0];
-                if (citiesReachedSpan) citiesReachedSpan.textContent = 1;
-            } else {
-                const cityIndex = Math.floor(progress * (cities.length - 1));
-                if (currentCitySpan) currentCitySpan.textContent = cities[cityIndex];
-                if (distanceCoveredSpan) distanceCoveredSpan.textContent = distances[cityIndex];
-                if (citiesReachedSpan) citiesReachedSpan.textContent = cityIndex + 1;
-            }
-            
-            // Animation des points d'étape
-            const currentIndex = Math.round(progress * (cities.length - 1));
-                waypoints.forEach((waypoint, index) => {
-
-                const waypointProgress = index / (waypoints.length - 1);
-
-                if (progress >= waypointProgress) {
-
-                    waypoint.style.fill = '#E8D9B0';
-                    waypoint.style.stroke = '#9B8E6E';
-                    waypoint.style.strokeWidth = '2';
-                    waypoint.style.r = '12';
-                    waypoint.style.filter = 'url(#glow)';
-
-                } else {
-
-                    waypoint.style.fill = '#D4C9B0';
-                    waypoint.style.stroke = 'none';
-                    waypoint.style.r = '8';
-                    waypoint.style.filter = 'none';
-
-                }
-
-            });
-        }
-        
-        // Gestion du scroll
-        function handleScroll() {
-            const scrollSpacer = document.getElementById('scrollSpacer');
-            
-            if (!scrollSpacer || !routeSection) {
-                // Fallback sur l'ancienne méthode
-                const rect = routeSection.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                let progress = (windowHeight - rect.top) / (rect.height + windowHeight);
-                progress = Math.max(0, Math.min(1, progress));
-                updateRoute(progress);
-                return;
-            }
-            
-            // Méthode basée sur scrollSpacer - commence au TOP de la section
-            const sectionTop = routeSection.offsetTop;
-            const spacerHeight = scrollSpacer.offsetHeight;
-            const scrollY = window.scrollY;
-            
-            let progress = (scrollY - sectionTop) / spacerHeight;
-            progress = Math.max(0, Math.min(1, progress));
-
-            updateRoute(progress);
-        }
-        
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', handleScroll);
-        handleScroll();
+    // Initialiser la hauteur de la piste
+    function updateTrackHeight() {
+        trackHeight = sliderTrack.offsetHeight;
     }
+    updateTrackHeight();
+    window.addEventListener('resize', updateTrackHeight);
+    
+    // Fonction pour mettre à jour la révélation
+    function updateReveal(percentage) {
+        percentage = Math.max(0, Math.min(percentage, 100));
+        
+        // Mettre à jour le slider visuel
+        sliderProgress.style.height = percentage + '%';
+        
+        // Positionner le thumb : clamped entre 0 et 85% pour éviter tout débordement
+        const clampedBottom = Math.max(0, Math.min(percentage - 5, 85));
+        sliderThumb.style.bottom = clampedBottom + '%';
+        
+        // Mettre à jour la révélation du SVG
+        routeReveal.setAttribute('y', (400 * (1 - percentage / 100)));
+        routeReveal.setAttribute('height', (400 * (percentage / 100)));
+        
+        // Mettre à jour le pourcentage affiché
+        routePercent.textContent = Math.round(percentage);
+    }
+    
+    // Clic sur la piste
+    sliderTrack.addEventListener('click', (e) => {
+        const rect = sliderTrack.getBoundingClientRect();
+        const y = e.clientY - rect.top;
+        const percentage = ((trackHeight - y) / trackHeight) * 100;
+        updateReveal(percentage);
+    });
+    
+    // Drag du curseur
+    sliderThumb.addEventListener('mousedown', () => {
+        isDragging = true;
+        sliderThumb.style.cursor = 'grabbing';
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        
+        const rect = sliderTrack.getBoundingClientRect();
+        const y = e.clientY - rect.top;
+        const percentage = ((trackHeight - y) / trackHeight) * 100;
+        updateReveal(percentage);
+    });
+    
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        sliderThumb.style.cursor = 'grab';
+    });
+    
+    // Initialiser
+    updateReveal(0);
     
     // Animation des sections de statistiques
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -231,39 +172,52 @@ function setupRouteAnimation() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const element = entry.target;
-                let targetNumber = parseInt(element.textContent.replace(/[^0-9]/g, ''));
+                const targetValue = element.getAttribute('data-target');
                 
-                if (!isNaN(targetNumber) && element.getAttribute('data-animated') !== 'true') {
+                if (targetValue && element.getAttribute('data-animated') !== 'true') {
                     element.setAttribute('data-animated', 'true');
-                    const hasPlus = element.textContent.includes('+');
-                    animateNumber(element, 0, targetNumber, 1500, hasPlus);
+                    const hasSymbol = targetValue.includes('€') || targetValue.includes('+');
+                    const numericValue = parseInt(targetValue.replace(/[^0-9]/g, ''));
+                    
+                    if (!isNaN(numericValue)) {
+                        animateNumber(element, 0, numericValue, 1500, hasSymbol, targetValue);
+                    }
                 }
             }
         });
     }, { threshold: 0.5 });
     
     statNumbers.forEach(stat => {
-        const originalValue = stat.textContent;
+        const originalValue = stat.textContent.trim();
         stat.setAttribute('data-target', originalValue);
-        const hasPlus = originalValue.includes('+');
-        const numericValue = parseInt(originalValue.replace(/[^0-9]/g, ''));
-        if (!isNaN(numericValue)) {
-            stat.textContent = hasPlus ? '0+' : '0';
-        }
+        stat.textContent = '0';
         numberObserver.observe(stat);
     });
     
-    function animateNumber(element, start, end, duration, hasPlus = false) {
+    function animateNumber(element, start, end, duration, hasSymbol = false, fullValue = '') {
         let startTimestamp = null;
         const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             const currentValue = Math.floor(progress * (end - start) + start);
-            element.textContent = hasPlus ? currentValue + '+' : currentValue;
+            
+            // Afficher le numéro avec le format original
+            if (fullValue.includes('€')) {
+                element.textContent = currentValue + '€';
+            } else if (fullValue.includes('+')) {
+                element.textContent = currentValue + '+';
+            } else if (fullValue.includes(' ')) {
+                // Pour les nombres avec espaces (comme 7 340)
+                element.textContent = currentValue.toLocaleString('fr-FR');
+            } else {
+                element.textContent = currentValue;
+            }
+            
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             } else {
-                element.textContent = hasPlus ? end + '+' : end;
+                // Afficher la valeur finale exacte
+                element.textContent = fullValue;
             }
         };
         window.requestAnimationFrame(step);
@@ -573,4 +527,53 @@ function displayPastProjections() {
     });
     
     pastList.innerHTML = html;
+}
+
+// Carousel 3D Vertical
+function setupPhilosophyCarousel() {
+    const carousel = document.getElementById('philosophyCarousel');
+    const prevBtn = document.querySelector('.carousel-arrow-left');
+    const nextBtn = document.querySelector('.carousel-arrow-right');
+    
+    if (!carousel || !prevBtn || !nextBtn) return;
+    
+    const slides = carousel.querySelectorAll('.carousel-3d-slide');
+    let currentIndex = 0;
+    
+    function updateCarousel() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active', 'prev', 'next');
+            
+            if (index === currentIndex) {
+                slide.classList.add('active');
+            } else if (index === (currentIndex - 1 + slides.length) % slides.length) {
+                slide.classList.add('prev');
+            } else if (index === (currentIndex + 1) % slides.length) {
+                slide.classList.add('next');
+            }
+        });
+    }
+    
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+    }
+    
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+    }
+    
+    // Event listeners pour les boutons
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Navigation au clavier
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+    });
+    
+    // Initialiser le premier slide
+    updateCarousel();
 }
