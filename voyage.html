@@ -145,13 +145,13 @@
             
             <div class="route-map-wrapper">
                 <div class="route-map-container">
-                    <img src="carte_trace/carte.png" alt="Carte itinéraire" class="route-map" width="600" height="400" loading="lazy">
-                    <svg class="route-trace-overlay" viewBox="0 0 600 400">
+                    <svg class="route-map-canvas" viewBox="0 0 600 400" aria-label="Carte itinéraire">
                         <defs>
                             <mask id="routeMask">
                                 <rect id="routeReveal" x="0" y="400" width="600" height="0" fill="white"/>
                             </mask>
                         </defs>
+                        <image href="carte_trace/carte.png" x="0" y="0" width="600" height="400"/>
                         <image href="carte_trace/trace.png" x="0" y="0" width="600" height="400" mask="url(#routeMask)"/>
                     </svg>
                     <div class="route-vertical-slider">
