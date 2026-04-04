@@ -72,10 +72,12 @@ function setupRouteAnimation() {
     
     let isDragging = false;
     let trackHeight = 0;
+    let currentPercentage = 0;
     
     // Initialiser la hauteur de la piste
     function updateTrackHeight() {
         trackHeight = sliderTrack.offsetHeight;
+        updateReveal(currentPercentage);
     }
     updateTrackHeight();
     window.addEventListener('resize', updateTrackHeight);
@@ -83,13 +85,16 @@ function setupRouteAnimation() {
     // Fonction pour mettre à jour la révélation
     function updateReveal(percentage) {
         percentage = Math.max(0, Math.min(percentage, 100));
+        currentPercentage = percentage;
         
         // Mettre à jour le slider visuel
         sliderProgress.style.height = percentage + '%';
         
-        // Positionner le thumb : clamped entre 0 et 85% pour éviter tout débordement
-        const clampedBottom = Math.max(0, Math.min(percentage - 5, 85));
-        sliderThumb.style.bottom = clampedBottom + '%';
+        // Positionner le thumb en pixels pour couvrir précisément 0 -> 100%
+        const thumbHeight = sliderThumb.offsetHeight || 20;
+        const thumbRange = Math.max(trackHeight - thumbHeight, 0);
+        const thumbBottom = (percentage / 100) * thumbRange;
+        sliderThumb.style.bottom = thumbBottom + 'px';
         
         // Mettre à jour la révélation du SVG
         routeReveal.setAttribute('y', (400 * (1 - percentage / 100)));
@@ -98,33 +103,63 @@ function setupRouteAnimation() {
         // Mettre à jour le pourcentage affiché
         routePercent.textContent = Math.round(percentage);
     }
+
+    function getPointerY(event) {
+        if (event.touches && event.touches.length > 0) return event.touches[0].clientY;
+        if (event.changedTouches && event.changedTouches.length > 0) return event.changedTouches[0].clientY;
+        return event.clientY;
+    }
+
+    function updateFromPointer(event) {
+        const rect = sliderTrack.getBoundingClientRect();
+        const pointerY = getPointerY(event);
+        const y = pointerY - rect.top;
+        const percentage = ((trackHeight - y) / trackHeight) * 100;
+        updateReveal(percentage);
+    }
     
     // Clic sur la piste
     sliderTrack.addEventListener('click', (e) => {
-        const rect = sliderTrack.getBoundingClientRect();
-        const y = e.clientY - rect.top;
-        const percentage = ((trackHeight - y) / trackHeight) * 100;
-        updateReveal(percentage);
+        updateFromPointer(e);
     });
+
+    sliderTrack.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        updateFromPointer(e);
+    }, { passive: false });
     
     // Drag du curseur
     sliderThumb.addEventListener('mousedown', () => {
         isDragging = true;
         sliderThumb.style.cursor = 'grabbing';
     });
+
+    sliderThumb.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        isDragging = true;
+        updateFromPointer(e);
+    }, { passive: false });
     
     document.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
-        
-        const rect = sliderTrack.getBoundingClientRect();
-        const y = e.clientY - rect.top;
-        const percentage = ((trackHeight - y) / trackHeight) * 100;
-        updateReveal(percentage);
+
+        updateFromPointer(e);
     });
+
+    document.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+
+        e.preventDefault();
+        updateFromPointer(e);
+    }, { passive: false });
     
     document.addEventListener('mouseup', () => {
         isDragging = false;
         sliderThumb.style.cursor = 'grab';
+    });
+
+    document.addEventListener('touchend', () => {
+        isDragging = false;
     });
     
     // Initialiser
@@ -314,6 +349,11 @@ function setupFranceMap() {
     Object.keys(regionCoordinates).forEach(regionId => {
         const count = projectionsData.upcoming.filter(p => p.region === regionId).length;
         const coords = regionCoordinates[regionId];
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        const pinWidth = isMobile ? 30 : 40;
+        const pinHeight = isMobile ? 38 : 50;
+        const circleRadius = isMobile ? 7 : 8;
+        const textSize = isMobile ? 12 : 14;
         
         if (document.querySelector(`[data-region="${regionId}"]`)) return;
         
@@ -322,8 +362,8 @@ function setupFranceMap() {
         pin.style.position = 'absolute';
         pin.style.left = coords.x + '%';
         pin.style.top = coords.y + '%';
-        pin.style.width = '40px';
-        pin.style.height = '50px';
+        pin.style.width = pinWidth + 'px';
+        pin.style.height = pinHeight + 'px';
         pin.style.transform = 'translate(-50%, -100%)';
         pin.style.cursor = (count > 0) ? 'pointer' : 'default';
         pin.style.zIndex = (count > 0) ? '21' : '10';
@@ -333,8 +373,8 @@ function setupFranceMap() {
             
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('viewBox', '0 0 40 50');
-        svg.setAttribute('width', '40');
-        svg.setAttribute('height', '50');
+        svg.setAttribute('width', String(pinWidth));
+        svg.setAttribute('height', String(pinHeight));
         svg.style.width = '100%';
         svg.style.height = '100%';
         svg.style.filter = 'drop-shadow(0 2px 6px rgba(0,0,0,0.2))';
@@ -350,14 +390,14 @@ function setupFranceMap() {
         const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         circle.setAttribute('cx', '20');
         circle.setAttribute('cy', '18');
-        circle.setAttribute('r', '8');
+        circle.setAttribute('r', String(circleRadius));
         circle.setAttribute('fill', 'white');
         
         const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         text.setAttribute('x', '20');
         text.setAttribute('y', '22');
         text.setAttribute('text-anchor', 'middle');
-        text.setAttribute('font-size', '14');
+        text.setAttribute('font-size', String(textSize));
         text.setAttribute('font-weight', 'bold');
         text.setAttribute('fill', '#9B8E6E');
         text.textContent = count;
