@@ -30,41 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Gestion du formulaire de contact
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            const formMessage = document.getElementById('formMessage');
-            
-            if (!name || !email || !subject || !message) {
-                formMessage.textContent = 'Veuillez remplir tous les champs obligatoires.';
-                formMessage.className = 'form-message error';
-                return;
-            }
-            
-            if (!email.includes('@')) {
-                formMessage.textContent = 'Veuillez entrer une adresse email valide.';
-                formMessage.className = 'form-message error';
-                return;
-            }
-            
-            formMessage.textContent = 'Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.';
-            formMessage.className = 'form-message success';
-            contactForm.reset();
-            
-            setTimeout(() => {
-                formMessage.textContent = '';
-                formMessage.className = 'form-message';
-            }, 5000);
-        });
-    }
-    
     // Animation des sections au scroll (Intersection Observer)
     const animateElements = document.querySelectorAll('.card, .philosophy-item, .stat-card, .gear-item, .fun-box');
     
