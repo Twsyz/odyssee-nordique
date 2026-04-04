@@ -66,7 +66,6 @@ function setupRouteAnimation() {
     const sliderTrack = document.querySelector('.slider-track');
     const sliderProgress = document.querySelector('.slider-progress');
     const routeReveal = document.getElementById('routeReveal');
-    const routePercent = document.getElementById('routePercent');
     
     if (!sliderThumb || !sliderTrack || !sliderProgress || !routeReveal) return;
     
@@ -84,6 +83,8 @@ function setupRouteAnimation() {
     
     // Fonction pour mettre à jour la révélation
     function updateReveal(percentage) {
+        if (!trackHeight || trackHeight <= 0) return;
+
         percentage = Math.max(0, Math.min(percentage, 100));
         currentPercentage = percentage;
         
@@ -100,8 +101,7 @@ function setupRouteAnimation() {
         routeReveal.setAttribute('y', (400 * (1 - percentage / 100)));
         routeReveal.setAttribute('height', (400 * (percentage / 100)));
         
-        // Mettre à jour le pourcentage affiché
-        routePercent.textContent = Math.round(percentage);
+        // Pas d'affichage de pourcentage: uniquement la révélation visuelle.
     }
 
     function getPointerY(event) {
