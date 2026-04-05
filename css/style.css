@@ -374,25 +374,42 @@ h3 {
 
 .hero-content {
     position: absolute;
-    bottom: 20%;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     color: white;
     width: 90%;
     max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
 }
 
 .hero-title {
     font-size: clamp(2rem, 6vw, 4rem);
     color: white;
-    margin-bottom: 1rem;
+    margin: 20px 0 0;
+}
+
+.hero-tagline {
+    font-size: 1.3rem;
+    color: white;
+    opacity: 0.95;
+    font-weight: 300;
+    margin: 0;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    opacity: 0.85;
+}
+
+.hero-content .btn {
+    margin-top: auto;
 }
 
 /* CARDS */

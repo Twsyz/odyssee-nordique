@@ -29,6 +29,15 @@ const projectionsData = {
             lien: "https://family-cinema.com/"
         },
         {
+            region: "grand-est",
+            lieu: "Family Cinéma",
+            ville: "Saint-Just Saint-Rambert",
+            date: "07/05/2026",
+            horaire: "20:00",
+            lien: "https://family-cinema.com/"
+        },
+        
+        {
             region: "bretagne",
             lieu: "Bar Embarcadère",
             ville: "Lorient",
