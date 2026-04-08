@@ -28,14 +28,15 @@ const projectionsData = {
             horaire: "20:00",
             lien: "https://family-cinema.com/"
         },
-        {
-            region: "grand-est",
-            lieu: "Family Cinéma",
-            ville: "Saint-Just Saint-Rambert",
-            date: "07/05/2026",
-            horaire: "20:00",
-            lien: "https://family-cinema.com/"
-        },
+        // Exemple de projection à ajouter :
+        // {
+        //     region: "grand-est",
+        //     lieu: "Family Cinéma",
+        //     ville: "Saint-Just Saint-Rambert",
+        //     date: "07/05/2026",
+        //     horaire: "20:00",
+        //     lien: "https://family-cinema.com/"
+        // },
         
         {
             region: "bretagne",
@@ -47,17 +48,17 @@ const projectionsData = {
         }
     ],
     
-    // Projections passées
-    past: [
-        {
-            lieu: "Médiathèque de Lille",
-            ville: "Lille",
-            date: "18/01/2025"
-        },
-        {
-            lieu: "Cinéma Le Trianon",
-            ville: "Brest",
-            date: "11/01/2025"
-        }
-    ]
+    // Exemple de Projections passées
+    // past: [
+    //     {
+    //         lieu: "Médiathèque de Lille",
+    //         ville: "Lille",
+    //         date: "18/01/2025"
+    //     },
+    //     {
+    //         lieu: "Cinéma Le Trianon",
+    //         ville: "Brest",
+    //         date: "11/01/2025"
+    //     }
+    // ]
 };
