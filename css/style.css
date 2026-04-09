@@ -1667,9 +1667,20 @@ h3 {
         grid-template-columns: 1fr;
     }
     
+    
     .footer-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-btn {
+        padding: 6px 16px;
+        font-size: 0.85rem;
     }
     
     .hero-title {
