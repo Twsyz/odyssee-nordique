@@ -9,6 +9,19 @@
 //   lien: "https://..."
 // }
 
+// 'ile-de-france'
+// 'hauts-de-france'
+// 'normandie'
+// 'bretagne'
+// 'pays-de-la-loire'
+// 'centre'
+// 'grand-est'
+// 'bourgogne'
+// 'auvergne'
+// 'nouvelle-aquitaine'
+// 'occitanie'
+// 'paca'
+
 const projectionsData = {
     // Projections à venir
     upcoming: [
@@ -25,8 +38,16 @@ const projectionsData = {
             lieu: "Family Cinéma",
             ville: "Saint-Just Saint-Rambert",
             date: "07/05/2026",
-            horaire: "20:00",
-            lien: "https://family-cinema.com/"
+            horaire: "20:30",
+            lien: "https://family-cinema.com/FR/fiche-film-cinema/M0SPHD/l-odyssee-nordique-reprendre-la-route.html"
+        },
+         {
+            region: "auvergne",
+            lieu: "Cinéma Le Méliès Saint-François",
+            ville: "Saint-Etienne",
+            date: "28/05/2026",
+            horaire: "20:30",
+            lien: "https://www.lemelies.com/evenement/lodyssee-nordique-reprendre-la-route/"
         },
         // Exemple de projection à ajouter :
         // {
@@ -46,6 +67,7 @@ const projectionsData = {
             horaire: "20:00",
             lien: "https://www.embarcadere-lorient.org/"
         }
+        // PAS DE VIRGULE AU DERNIER
     ],
     
     // Exemple de Projections passées
@@ -60,5 +82,6 @@ const projectionsData = {
     //         ville: "Brest",
     //         date: "11/01/2025"
     //     }
+    // PAS DE VIRGULE AU DERNIER
     // ]
 };
