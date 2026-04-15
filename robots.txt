@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://twsyz.github.io/odyssee-nordique/sitemap.xml
+Sitemap: https://odysseenordique-film.com/sitemap.xml
