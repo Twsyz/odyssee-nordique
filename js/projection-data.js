@@ -43,22 +43,6 @@ const projectionsData = {
         },  
         {
             region: "auvergne",
-            lieu: "Cinéma Le Concorde",
-            ville: "Nantes",
-            date: "19/05/2026",
-            horaire: "20:30",
-            lien: "https://leconcorde.fr/"
-        },
-        {
-            region: "centre",
-            lieu: "Cinéma Le Concorde",
-            ville: "Nantes",
-            date: "19/05/2026",
-            horaire: "20:30",
-            lien: "https://leconcorde.fr/"
-        },
-        {
-            region: "auvergne",
             lieu: "Family Cinéma",
             ville: "Saint-Just Saint-Rambert",
             date: "07/05/2026",
