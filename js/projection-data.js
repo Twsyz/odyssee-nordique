@@ -33,7 +33,7 @@ const projectionsData = {
             horaire: "12:30",
             lien: "https://velo-in-paris.com/"
         },
-           {
+        {
             region: "pays-de-la-loire",
             lieu: "Cinéma Le Concorde",
             ville: "Nantes",
@@ -49,7 +49,7 @@ const projectionsData = {
             horaire: "20:30",
             lien: "https://family-cinema.com/FR/fiche-film-cinema/M0SPHD/l-odyssee-nordique-reprendre-la-route.html"
         },
-         {
+        {
             region: "auvergne",
             lieu: "Cinéma Le Méliès Saint-François",
             ville: "Saint-Etienne",
