@@ -66,14 +66,21 @@ const projectionsData = {
         //     horaire: "20:00",
         //     lien: "https://family-cinema.com/"
         // },
-        
-        {
-            region: "bretagne",
+         {
+            region: "occitanie",
             lieu: "Bar Embarcadère",
             ville: "Lorient",
             date: "20/05/2026",
             horaire: "20:00",
             lien: "https://www.embarcadere-lorient.org/"
+        },
+        {
+            region: "bretagne",
+            lieu: "MJC Ciné 113",
+            ville: "Castanet Tolosan",
+            date: "11/06/2026",
+            horaire: "19:30",
+            lien: "https://www.mjc-castanet-tolosan.fr/cinema-cine-113/"
         }
         // PAS DE VIRGULE AU DERNIER
     ],
