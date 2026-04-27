@@ -25,14 +25,7 @@
 const projectionsData = {
     // Projections à venir
     upcoming: [
-        {
-            region: "ile-de-france",
-            lieu: "Festival \"Vélo in Paris\"",
-            ville: "Porte de Vincennes - Paris",
-            date: "25/04/2026",
-            horaire: "12:30",
-            lien: "https://velo-in-paris.com/"
-        },
+
         {
             region: "pays-de-la-loire",
             lieu: "Cinéma Le Concorde",
@@ -74,6 +67,14 @@ const projectionsData = {
             horaire: "20:00",
             lien: "https://www.embarcadere-lorient.org/"
         },
+         {
+            region: "bretagne",
+            lieu: "Cinéville",
+            ville: "Lorient",
+            date: "05/11/2026",
+            horaire: "20:30",
+            lien: "https://lorient.cineville.fr/programmes/lorient"
+        },
         {
             region: "occitanie",
             lieu: "MJC Ciné 113",
@@ -87,11 +88,11 @@ const projectionsData = {
     
     // Exemple de Projections passées
     // past: [
-    //     {
-    //         lieu: "Médiathèque de Lille",
-    //         ville: "Lille",
-    //         date: "18/01/2025"
-    //     },
+    {
+       lieu: "Festival \"Vélo in Paris\",
+       ville: "Porte de Vincennes - Paris",
+       date: "25/04/2026"
+    }
     //     {
     //         lieu: "Cinéma Le Trianon",
     //         ville: "Brest",
