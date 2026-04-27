@@ -91,16 +91,18 @@ const projectionsData = {
     // Exemple de Projections passées
     
     past: [
-    {
-       lieu: "Festival \"Vélo in Paris\",
-       ville: "Porte de Vincennes - Paris",
-       date: "25/04/2026"
-    }
+        {
+            lieu: "Festival \"Vélo in Paris\",
+                ville: "Porte de Vincennes - Paris",
+            date: "25/04/2026"
+        }
+        
     //     {
     //         lieu: "Cinéma Le Trianon",
     //         ville: "Brest",
     //         date: "11/01/2025"
     //     }
     // PAS DE VIRGULE AU DERNIER
+        
     ]
 };
