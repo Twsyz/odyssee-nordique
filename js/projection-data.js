@@ -67,6 +67,7 @@ const projectionsData = {
             horaire: "20:00",
             lien: "https://www.embarcadere-lorient.org/"
         },
+        
          {
             region: "bretagne",
             lieu: "Cinéville",
@@ -75,6 +76,7 @@ const projectionsData = {
             horaire: "20:30",
             lien: "https://lorient.cineville.fr/programmes/lorient"
         },
+        
         {
             region: "occitanie",
             lieu: "MJC Ciné 113",
@@ -87,7 +89,8 @@ const projectionsData = {
     ],
     
     // Exemple de Projections passées
-    // past: [
+    
+    past: [
     {
        lieu: "Festival \"Vélo in Paris\",
        ville: "Porte de Vincennes - Paris",
@@ -99,5 +102,5 @@ const projectionsData = {
     //         date: "11/01/2025"
     //     }
     // PAS DE VIRGULE AU DERNIER
-    // ]
+    ]
 };
