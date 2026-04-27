@@ -93,7 +93,7 @@ const projectionsData = {
     past: [
         {
             lieu: "Festival \"Vélo in Paris\",
-                ville: "Porte de Vincennes - Paris",
+            ville: "Porte de Vincennes - Paris",
             date: "25/04/2026"
         }
         
