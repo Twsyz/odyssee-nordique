@@ -35,14 +35,6 @@ const projectionsData = {
             lien: "https://leconcorde.fr/"
         },  
         {
-            region: "bretagne",
-            lieu: "Centre Culturel Les Arcs",
-            ville: "Quéven",
-            date: "16/09/2026",
-            horaire: "20:30",
-            lien: "https://www.lesarcs.bzh/"
-        },
-        {
             region: "auvergne",
             lieu: "Cinéma Le Méliès Saint-François",
             ville: "Saint-Etienne",
@@ -66,6 +58,14 @@ const projectionsData = {
             date: "20/05/2026",
             horaire: "20:00",
             lien: "https://www.embarcadere-lorient.org/"
+        },
+        {
+            region: "bretagne",
+            lieu: "Centre Culturel Les Arcs",
+            ville: "Quéven",
+            date: "16/09/2026",
+            horaire: "20:30",
+            lien: "https://www.lesarcs.bzh/"
         },
         
          {
