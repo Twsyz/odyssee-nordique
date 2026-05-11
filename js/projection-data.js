@@ -35,12 +35,12 @@ const projectionsData = {
             lien: "https://leconcorde.fr/"
         },  
         {
-            region: "auvergne",
-            lieu: "Family Cinéma",
-            ville: "Saint-Just Saint-Rambert",
-            date: "07/05/2026",
+            region: "bretagne",
+            lieu: "Centre Culturel Les Arcs",
+            ville: "Quéven",
+            date: "16/09/2026",
             horaire: "20:30",
-            lien: "https://family-cinema.com/FR/fiche-film-cinema/M0SPHD/l-odyssee-nordique-reprendre-la-route.html"
+            lien: "https://www.lesarcs.bzh/"
         },
         {
             region: "auvergne",
@@ -93,8 +93,13 @@ const projectionsData = {
     past: [
         {
             lieu: "Festival \"Vélo in Paris\"",
-            ville: "Porte de Vincennes - Paris",
+            ville: "Porte de Vincennes - Paris (75)",
             date: "25/04/2026"
+        },
+        {
+            lieu: "Family Cinéma",
+            ville: "Saint-Just Saint-Rambert, Loire (42)",
+            date: "07/05/2026"
         }
         
     //     {
