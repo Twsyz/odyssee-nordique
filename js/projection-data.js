@@ -33,6 +33,14 @@ const projectionsData = {
             date: "19/05/2026",
             horaire: "20:30",
             lien: "https://leconcorde.fr/"
+        }, 
+         {
+            region: "pays-de-la-loire",
+            lieu: "Cinéma Savenay",
+            ville: "Sanenay",
+            date: "19/11/2026",
+            horaire: "18:30",
+            lien: "https://www.mediatheques.estuaire-sillon.fr/"
         },  
         {
             region: "auvergne",
