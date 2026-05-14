@@ -36,7 +36,7 @@ const projectionsData = {
         }, 
          {
             region: "pays-de-la-loire",
-            lieu: "Cinéma Savenay",
+            lieu: "Cinéville Savenay",
             ville: "Sanenay",
             date: "19/11/2026",
             horaire: "18:30",
