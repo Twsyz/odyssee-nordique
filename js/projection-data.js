@@ -111,7 +111,7 @@ const projectionsData = {
         },
         {
             lieu: "Cinéma Le Concorde",
-            ville: "Nantes, Loire-Atlantique (44)",
+            ville: "Nantes - Loire-Atlantique (44)",
             date: "19/05/2026"
         }
         
