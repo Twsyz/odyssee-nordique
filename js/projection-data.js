@@ -26,14 +26,6 @@ const projectionsData = {
     // Projections à venir
     upcoming: [
 
-        {
-            region: "pays-de-la-loire",
-            lieu: "Cinéma Le Concorde",
-            ville: "Nantes",
-            date: "19/05/2026",
-            horaire: "20:30",
-            lien: "https://leconcorde.fr/"
-        }, 
          {
             region: "pays-de-la-loire",
             lieu: "Cinéville Savenay",
@@ -72,8 +64,16 @@ const projectionsData = {
             lieu: "Centre Culturel Les Arcs",
             ville: "Quéven",
             date: "16/09/2026",
-            horaire: "20:30",
+            horaire: "20:00",
             lien: "https://www.lesarcs.bzh/"
+        },
+        {
+            region: "bretagne",
+            lieu: "Cinéma Saint-Michel",
+            ville: "Liffré",
+            date: "22/09/2026",
+            horaire: "20:00",
+            lien: "https://www.cinema-liffre.com/"
         },
         
          {
@@ -106,8 +106,13 @@ const projectionsData = {
         },
         {
             lieu: "Family Cinéma",
-            ville: "Saint-Just Saint-Rambert, Loire (42)",
+            ville: "Saint-Just Saint-Rambert - Loire (42)",
             date: "07/05/2026"
+        },
+        {
+            lieu: "Cinéma Le Concorde",
+            ville: "Nantes, Loire-Atlantique (44)",
+            date: "19/05/2026"
         }
         
     //     {
