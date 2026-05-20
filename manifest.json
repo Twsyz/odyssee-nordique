@@ -1,7 +1,7 @@
 {
   "name": "L'Odyssée Nordique - Documentaire Voyage",
   "short_name": "Odyssée Nordique",
-  "description": "Un documentaire inspirant sur la renaissance par le voyage aux pays nordiques",
+  "description": "Un documentaire sur la mobilité cyclable et le voyage à vélo en Europe du Nord",
   "start_url": "https://odysseenordique-film.com/",
   "scope": "https://odysseenordique-film.com/",
   "display": "standalone",
