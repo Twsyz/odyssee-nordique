@@ -94,22 +94,22 @@ const projectionsData = {
     past: [
         {
             lieu: "Festival \"Vélo in Paris\"",
-            ville: "Porte de Vincennes | Paris (75)",
+            ville: "Porte de Vincennes / Paris (75)",
             date: "25/04/2026"
         },
         {
             lieu: "Family Cinéma",
-            ville: "Saint-Just Saint-Rambert | Loire (42)",
+            ville: "Saint-Just Saint-Rambert / Loire (42)",
             date: "07/05/2026"
         },
         {
             lieu: "Cinéma Le Concorde",
-            ville: "Nantes | Loire-Atlantique (44)",
+            ville: "Nantes / Loire-Atlantique (44)",
             date: "19/05/2026"
         },
         {
             lieu: "Bar Embarcadère",
-            ville: "Lorient | Morbihan (56)",
+            ville: "Lorient / Morbihan (56)",
             date: "20/05/2026"
         }
         
