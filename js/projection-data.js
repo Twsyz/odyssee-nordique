@@ -51,14 +51,7 @@ const projectionsData = {
         //     horaire: "20:00",
         //     lien: "https://family-cinema.com/"
         // },
-         {
-            region: "bretagne",
-            lieu: "Bar Embarcadère",
-            ville: "Lorient",
-            date: "20/05/2026",
-            horaire: "20:00",
-            lien: "https://www.embarcadere-lorient.org/"
-        },
+    
         {
             region: "bretagne",
             lieu: "Centre Culturel Les Arcs",
@@ -101,18 +94,23 @@ const projectionsData = {
     past: [
         {
             lieu: "Festival \"Vélo in Paris\"",
-            ville: "Porte de Vincennes - Paris (75)",
+            ville: "Porte de Vincennes | Paris (75)",
             date: "25/04/2026"
         },
         {
             lieu: "Family Cinéma",
-            ville: "Saint-Just Saint-Rambert - Loire (42)",
+            ville: "Saint-Just Saint-Rambert | Loire (42)",
             date: "07/05/2026"
         },
         {
             lieu: "Cinéma Le Concorde",
-            ville: "Nantes - Loire-Atlantique (44)",
+            ville: "Nantes | Loire-Atlantique (44)",
             date: "19/05/2026"
+        },
+        {
+            lieu: "Bar Embarcadère",
+            ville: "Lorient | Morbihan (56)",
+            date: "20/05/2026"
         }
         
     //     {
