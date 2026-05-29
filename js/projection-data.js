@@ -35,12 +35,12 @@ const projectionsData = {
             lien: "https://www.mediatheques.estuaire-sillon.fr/"
         },  
         {
-            region: "auvergne",
-            lieu: "Cinéma Le Méliès Saint-François",
-            ville: "Saint-Etienne",
-            date: "28/05/2026",
+            region: "bourgogne",
+            lieu: "Festival Périples & Cie",
+            ville: "Mâcon",
+            date: "13/11/2026",
             horaire: "20:30",
-            lien: "https://www.lemelies.com/evenement/lodyssee-nordique-reprendre-la-route/"
+            lien: "https://www.periplesetcie.com/"
         },
         
         // Exemple de projection à ajouter :
@@ -112,6 +112,11 @@ const projectionsData = {
             lieu: "Bar Embarcadère",
             ville: "Lorient / Morbihan (56)",
             date: "20/05/2026"
+        },
+        {
+            lieu: "Cinéma Le Méliès",
+            ville: "Saint-Etienne / Loire (42)",
+            date: "28/05/2026"
         }
         
     //     {
