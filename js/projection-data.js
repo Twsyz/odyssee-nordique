@@ -37,7 +37,7 @@ const projectionsData = {
         {
             region: "bourgogne",
             lieu: "Festival Périples & Cie",
-            ville: "Mâcon",
+            ville: "Charnay-Lès-Mâcon",
             date: "13/11/2026",
             horaire: "20:30",
             lien: "https://www.periplesetcie.com/"
