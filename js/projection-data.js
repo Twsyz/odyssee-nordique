@@ -70,13 +70,29 @@ const projectionsData = {
             lien: "https://www.cinema-liffre.com/"
         },
         
-         {
+        {
             region: "bretagne",
             lieu: "Cinéville",
             ville: "Lorient",
             date: "05/11/2026",
             horaire: "20:30",
             lien: "https://lorient.cineville.fr/programmes/lorient"
+        },
+        {
+            region: "auvergne",
+            lieu: "Salle polyvalente",
+            ville: "Le Puy-en-Velay",
+            date: "10/10/2026",
+            horaire: "17:30",
+            lien: "https://lapuycyclette.fr/"
+        },
+        {
+            region: "nouvelle-aquitaine",
+            lieu: "Cinéma La Lanterne",
+            ville: "Bègles",
+            date: "24/06/2026",
+            horaire: "20:30",
+            lien: "https://cinemalalanterne.fr/"
         },
         
         {
