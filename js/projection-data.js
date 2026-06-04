@@ -80,7 +80,7 @@ const projectionsData = {
         },
         {
             region: "auvergne",
-            lieu: "Salle polyvalente",
+            lieu: "Foyer des jeunes Le Consulat",
             ville: "Le Puy-en-Velay",
             date: "10/10/2026",
             horaire: "17:30",
