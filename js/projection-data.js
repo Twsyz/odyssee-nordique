@@ -38,8 +38,8 @@ const projectionsData = {
             region: "bourgogne",
             lieu: "Festival Périples & Cie",
             ville: "Charnay-Lès-Mâcon",
-            date: "13/11/2026",
-            horaire: "20:30",
+            date: "15/11/2026",
+            horaire: "10:00",
             lien: "https://www.periplesetcie.com/"
         },
         
@@ -78,6 +78,22 @@ const projectionsData = {
             horaire: "20:30",
             lien: "https://lorient.cineville.fr/programmes/lorient"
         },
+         {
+            region: "auvergne",
+            lieu: "Foyer Cinéma",
+            ville: "Saint Symphorien sur Coise",
+            date: "25/09/2026",
+            horaire: "20:30",
+            lien: "https://foyercinema.fr/"
+        },
+          {
+            region: "auvergne",
+            lieu: "Cinéma REX",
+            ville: "Montbrison",
+            date: "05/08/2026",
+            horaire: "20:30",
+            lien: "https://www.rex-montbrison42.fr/"
+        },
         {
             region: "auvergne",
             lieu: "Foyer des jeunes Le Consulat",
@@ -85,6 +101,14 @@ const projectionsData = {
             date: "10/10/2026",
             horaire: "17:30",
             lien: "https://lapuycyclette.fr/"
+        },
+            {
+            region: "auvergne",
+            lieu: "Vél'Osons Festival",
+            ville: "Chambéry",
+            date: "03/04/2027",
+            horaire: "A définir",
+            lien: "https://velosons.rouelibre.net/"
         },
         {
             region: "nouvelle-aquitaine",
