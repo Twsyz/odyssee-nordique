@@ -30,13 +30,13 @@ const projectionsData = {
             lieu: "Salle polyvalante",
             ville: "Basse-Goulaine",
             date: "25/09/2026",
-            horaire: "A définir",
+            horaire: "[Horaire à définir]",
             lien: "https://www.asso-gne.fr/"
         },  
          {
             region: "pays-de-la-loire",
             lieu: "Cinéville Savenay",
-            ville: "Sanenay",
+            ville: "Savenay",
             date: "19/11/2026",
             horaire: "18:30",
             lien: "https://www.mediatheques.estuaire-sillon.fr/"
@@ -68,6 +68,14 @@ const projectionsData = {
             horaire: "20:00",
             lien: "https://www.lesarcs.bzh/"
         },
+           {
+            region: "bretagne",
+            lieu: "Bar associatif L'éléphant Rose",
+            ville: "POnt-Scorff",
+            date: "20/09/2026",
+            horaire: "[Horaire à définir]",
+            lien: "https://www.helloasso.com/associations/l-elephant-rose"
+        },
         {
             region: "bretagne",
             lieu: "Cinéma Saint-Michel",
@@ -85,21 +93,22 @@ const projectionsData = {
             horaire: "20:30",
             lien: "https://lorient.cineville.fr/programmes/lorient"
         },
-         {
+       
+          {
+            region: "auvergne",
+            lieu: "Cinéma REX",
+            ville: "Montbrison",
+            date: "05/08/2026",
+            horaire: "[Horaire à définir]",
+            lien: "https://www.rex-montbrison42.fr/"
+        },  
+        {
             region: "auvergne",
             lieu: "Foyer Cinéma",
             ville: "Saint Symphorien sur Coise",
             date: "25/09/2026",
             horaire: "20:30",
             lien: "https://foyercinema.fr/"
-        },
-          {
-            region: "auvergne",
-            lieu: "Cinéma REX",
-            ville: "Montbrison",
-            date: "05/08/2026",
-            horaire: "20:30",
-            lien: "https://www.rex-montbrison42.fr/"
         },
         {
             region: "auvergne",
@@ -114,7 +123,7 @@ const projectionsData = {
             lieu: "Vél'Osons Festival",
             ville: "Chambéry",
             date: "du 02 ou 04/04/2027",
-            horaire: "A définir",
+            horaire: "[Horaire à définir]",
             lien: "https://velosons.rouelibre.net/"
         },
         {
