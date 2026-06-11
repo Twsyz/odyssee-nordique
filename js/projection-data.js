@@ -71,7 +71,7 @@ const projectionsData = {
            {
             region: "bretagne",
             lieu: "Bar associatif L'éléphant Rose",
-            ville: "POnt-Scorff",
+            ville: "Pont-Scorff",
             date: "20/09/2026",
             horaire: "[Horaire à définir]",
             lien: "https://www.helloasso.com/associations/l-elephant-rose"
