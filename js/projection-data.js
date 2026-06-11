@@ -25,7 +25,14 @@
 const projectionsData = {
     // Projections à venir
     upcoming: [
-
+{
+            region: "pays-de-la-loire",
+            lieu: "Salle polyvalante",
+            ville: "Basse-Goulaine",
+            date: "25/09/2026",
+            horaire: "A définir",
+            lien: "https://www.asso-gne.fr/"
+        },  
          {
             region: "pays-de-la-loire",
             lieu: "Cinéville Savenay",
@@ -106,7 +113,7 @@ const projectionsData = {
             region: "auvergne",
             lieu: "Vél'Osons Festival",
             ville: "Chambéry",
-            date: "03/04/2027",
+            date: "du 02 ou 04/04/2027",
             horaire: "A définir",
             lien: "https://velosons.rouelibre.net/"
         },
@@ -115,7 +122,7 @@ const projectionsData = {
             lieu: "Cinéma La Lanterne",
             ville: "Bègles",
             date: "24/06/2026",
-            horaire: "20:30",
+            horaire: "20:00",
             lien: "https://cinemalalanterne.fr/"
         },
         
