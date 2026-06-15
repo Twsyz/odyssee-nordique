@@ -139,17 +139,8 @@ const projectionsData = {
             lieu: "Cinéma La Lanterne",
             ville: "Bègles",
             date: "24/06/2026",
-            horaire: "20:00",
-            lien: "https://cinemalalanterne.fr/"
-        },
-        
-        {
-            region: "occitanie",
-            lieu: "MJC Ciné 113",
-            ville: "Castanet Tolosan",
-            date: "11/06/2026",
-            horaire: "19:30",
-            lien: "https://www.mjc-castanet-tolosan.fr/cinema-cine-113/"
+            horaire: "20:15",
+            lien: "https://cinemalalanterne.fr/film/l-odyssee-nordique-reprendre-la-route/"
         }
         // PAS DE VIRGULE AU DERNIER
     ],
@@ -181,6 +172,11 @@ const projectionsData = {
             lieu: "Cinéma Le Méliès",
             ville: "Saint-Etienne / Loire (42)",
             date: "28/05/2026"
+        },
+         {
+            lieu: "MJC Ciné 113",
+            ville: "Castanet-Tolosan / Haute-Garonne (31)",
+            date: "11/06/2026"
         }
         
     //     {
