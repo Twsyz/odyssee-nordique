@@ -27,10 +27,10 @@ const projectionsData = {
     upcoming: [
 {
             region: "pays-de-la-loire",
-            lieu: "Salle polyvalante",
+            lieu: "Salle de convivialité - Tribune Henri Michel / Tribune Emiliano Sala",
             ville: "Basse-Goulaine",
             date: "25/09/2026",
-            horaire: "[Horaire à définir]",
+            horaire: "19h00",
             lien: "https://www.asso-gne.fr/"
         },  
          {
@@ -102,6 +102,14 @@ const projectionsData = {
             horaire: "[Horaire à définir]",
             lien: "https://www.rex-montbrison42.fr/"
         },  
+            {
+            region: "auvergne",
+            lieu: "Cinéma Espace Renoir",
+            ville: "Roanne",
+            date: "18/09/2026",
+            horaire: "[Horaire à définir]",
+            lien: "https://www.cinemaespacerenoir.fr/"
+        }, 
         {
             region: "auvergne",
             lieu: "Foyer Cinéma",
