@@ -107,7 +107,7 @@ const projectionsData = {
             lieu: "Cinéma Espace Renoir",
             ville: "Roanne",
             date: "18/09/2026",
-            horaire: "[Horaire à définir]",
+            horaire: "20h30",
             lien: "https://www.cinemaespacerenoir.fr/"
         }, 
         {
