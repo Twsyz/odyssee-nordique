@@ -30,7 +30,7 @@ const projectionsData = {
             lieu: "Salle de convivialité - Tribune Henri Michel / Tribune Emiliano Sala",
             ville: "Basse-Goulaine",
             date: "25/09/2026",
-            horaire: "19h00",
+            horaire: "19:00",
             lien: "https://www.asso-gne.fr/"
         },  
          {
@@ -99,7 +99,7 @@ const projectionsData = {
             lieu: "Cinéma REX",
             ville: "Montbrison",
             date: "05/08/2026",
-            horaire: "[Horaire à définir]",
+            horaire: "20:00",
             lien: "https://www.rex-montbrison42.fr/"
         },  
             {
@@ -107,7 +107,7 @@ const projectionsData = {
             lieu: "Cinéma Espace Renoir",
             ville: "Roanne",
             date: "18/09/2026",
-            horaire: "20h30",
+            horaire: "20:30",
             lien: "https://www.cinemaespacerenoir.fr/"
         }, 
         {
