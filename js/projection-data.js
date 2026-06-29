@@ -133,14 +133,6 @@ const projectionsData = {
             date: "du 02 ou 04/04/2027",
             horaire: "[Horaire à définir]",
             lien: "https://velosons.rouelibre.net/"
-        },
-        {
-            region: "nouvelle-aquitaine",
-            lieu: "Cinéma La Lanterne",
-            ville: "Bègles",
-            date: "24/06/2026",
-            horaire: "20:15",
-            lien: "https://cinemalalanterne.fr/film/l-odyssee-nordique-reprendre-la-route/"
         }
         // PAS DE VIRGULE AU DERNIER
     ],
@@ -177,6 +169,11 @@ const projectionsData = {
             lieu: "MJC Ciné 113",
             ville: "Castanet-Tolosan / Haute-Garonne (31)",
             date: "11/06/2026"
+        },
+      {
+            lieu: "Cinéma La Lanterne",
+            ville: "Bègles / Gironde (33)",
+            date: "24/06/2026"
         }
         
     //     {
