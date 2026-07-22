@@ -100,7 +100,7 @@ const projectionsData = {
             ville: "Montbrison",
             date: "05/08/2026",
             horaire: "20:00",
-            lien: "https://www.rex-montbrison42.fr/"
+            lien: "https://www.rex-montbrison42.fr/httpswcms-production-p0672-457ffc51-e75e-4811-96ee-70c31e38ced9netlifyappundefined/76258-cine-rencontre-lodyssee-nordique/"
         },  
             {
             region: "auvergne",
