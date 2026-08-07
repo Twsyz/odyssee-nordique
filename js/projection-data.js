@@ -59,6 +59,14 @@ const projectionsData = {
         //     horaire: "20:00",
         //     lien: "https://family-cinema.com/"
         // },
+        {
+            region: "grand-est",
+            lieu: "Klub Cinéma",
+            ville: "Metz",
+            date: "08/09/2026",
+            horaire: "20:00",
+            lien: "https://klubcinema.fr/?main_section=tous+les+films"
+        },  
     
         {
             region: "bretagne",
@@ -75,6 +83,14 @@ const projectionsData = {
             date: "20/09/2026",
             horaire: "[Horaire à définir]",
             lien: "https://www.helloasso.com/associations/l-elephant-rose"
+        },
+               {
+            region: "bretagne",
+            lieu: " Cinéma municipal La Bobine",
+            ville: "Quimperlé",
+            date: "21/09/2026",
+            horaire: "20:30",
+            lien: "https://www.quimperle.bzh/vivre-a-quimperle/culture/le-cinema/"
         },
         {
             region: "bretagne",
@@ -93,15 +109,7 @@ const projectionsData = {
             horaire: "20:30",
             lien: "https://lorient.cineville.fr/programmes/lorient"
         },
-       
-          {
-            region: "auvergne",
-            lieu: "Cinéma REX",
-            ville: "Montbrison",
-            date: "05/08/2026",
-            horaire: "20:00",
-            lien: "https://www.rex-montbrison42.fr/httpswcms-production-p0672-457ffc51-e75e-4811-96ee-70c31e38ced9netlifyappundefined/76258-cine-rencontre-lodyssee-nordique/"
-        },  
+        
             {
             region: "auvergne",
             lieu: "Cinéma Espace Renoir",
@@ -174,6 +182,11 @@ const projectionsData = {
             lieu: "Cinéma La Lanterne",
             ville: "Bègles / Gironde (33)",
             date: "24/06/2026"
+        },
+     {
+            lieu: "Cinéma REX",
+            ville: "Montbrison / Loire (42)",
+            date: "05/08/2026"
         }
         
     //     {
