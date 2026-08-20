@@ -27,7 +27,7 @@ const projectionsData = {
     upcoming: [
 {
             region: "pays-de-la-loire",
-            lieu: "Salle de convivialité - Tribune Henri Michel / Tribune Emiliano Sala",
+            lieu: "Salle de convivialité - Tribune Henri Michel / Tribune Emilio Sala",
             ville: "Basse-Goulaine",
             date: "25/09/2026",
             horaire: "19:00",
@@ -65,7 +65,15 @@ const projectionsData = {
             ville: "Metz",
             date: "08/09/2026",
             horaire: "20:00",
-            lien: "https://klubcinema.fr/?main_section=tous+les+films"
+            lien: "https://klubcinema.fr/movies/detail/38961/HO00016392/0000000003/visite-d-equipe-l-odyssee-nordique"
+        },  
+        {
+            region: "grand-est",
+            lieu: "Cinéma Concorde",
+            ville: "Pont-à-Mousson",
+            date: "09/09/2026",
+            horaire: "18:30",
+            lien: "https://cinema-concorde-pam.fr/FR/fiche-film-cinema/M0SPHD/l-odyssee-nordique-reprendre-la-route.html"
         },  
     
         {
