@@ -124,7 +124,7 @@ const projectionsData = {
             ville: "Roanne",
             date: "18/09/2026",
             horaire: "20:30",
-            lien: "https://www.cinemaespacerenoir.fr/"
+            lien: "https://www.cinemaespacerenoir.fr/events/77574-cine-echanges-lodyssee-nordique-reprendre-la-route/"
         }, 
         {
             region: "auvergne",
