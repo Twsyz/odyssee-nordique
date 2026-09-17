@@ -58,32 +58,8 @@ const projectionsData = {
         //     date: "07/05/2026",
         //     horaire: "20:00",
         //     lien: "https://family-cinema.com/"
-        // },
-        {
-            region: "grand-est",
-            lieu: "Klub Cinéma",
-            ville: "Metz",
-            date: "08/09/2026",
-            horaire: "20:00",
-            lien: "https://klubcinema.fr/movies/detail/38961/HO00016392/0000000003/visite-d-equipe-l-odyssee-nordique"
-        },  
-        {
-            region: "grand-est",
-            lieu: "Cinéma Concorde",
-            ville: "Pont-à-Mousson",
-            date: "09/09/2026",
-            horaire: "18:30",
-            lien: "https://cinema-concorde-pam.fr/FR/fiche-film-cinema/M0SPHD/l-odyssee-nordique-reprendre-la-route.html"
-        },  
+        // },  
     
-        {
-            region: "bretagne",
-            lieu: "Centre Culturel Les Arcs",
-            ville: "Quéven",
-            date: "16/09/2026",
-            horaire: "20:00",
-            lien: "https://www.lesarcs.bzh/"
-        },
            {
             region: "bretagne",
             lieu: "Bar associatif L'éléphant Rose",
@@ -195,6 +171,21 @@ const projectionsData = {
             lieu: "Cinéma REX",
             ville: "Montbrison / Loire (42)",
             date: "05/08/2026"
+        },
+         {
+            lieu: "Klub Cinéma",
+            ville: "Metz / Moselle (57)",
+            date: "08/09/2026"
+        },
+        {
+            lieu: "Cinéma Concorde",
+            ville: "Pont-à-Mousson / Meurthe et Moselle (54)",
+            date: "09/09/2026"
+        },
+        {
+            lieu: "Centre Culturel Les Arcs",
+            ville: "Quévin / Morbihan (56)",
+            date: "16/09/2026"
         }
         
     //     {
