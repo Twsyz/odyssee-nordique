@@ -192,7 +192,7 @@ const projectionsData = {
         },
         {
             lieu: "Centre Culturel Les Arcs",
-            ville: "Quévin / Morbihan (56)",
+            ville: "Quéven / Morbihan (56)",
             date: "16/09/2026"
         }
         
