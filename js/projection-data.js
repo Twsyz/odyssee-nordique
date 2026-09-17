@@ -118,6 +118,14 @@ const projectionsData = {
             horaire: "17:30",
             lien: "https://lapuycyclette.fr/"
         },
+        {
+            region: "auvergne",
+            lieu: "Cinéma Le Foyer",
+            ville: "Bourg-Argental",
+            date: "11/10/2026",
+            horaire: "17:30",
+            lien: "https://cinelefoyer.com/"
+        },
             {
             region: "auvergne",
             lieu: "Vél'Osons Festival",
