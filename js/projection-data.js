@@ -123,7 +123,7 @@ const projectionsData = {
             lieu: "Foyer des jeunes Le Consulat",
             ville: "Le Puy-en-Velay",
             date: "10/10/2026",
-            horaire: "17:30",
+            horaire: "18:00",
             lien: "https://lapuycyclette.fr/"
         },
         {
