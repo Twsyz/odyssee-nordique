@@ -49,6 +49,14 @@ const projectionsData = {
             horaire: "10:00",
             lien: "https://www.periplesetcie.com/"
         },
+        {
+            region: "grand-est",
+            lieu: "Cinéma de Noiregoutte",
+            ville: "Plainfaing",
+            date: "25/10/2026",
+            horaire: "15:00",
+            lien: "https://culturecnous.vosges.fr/lieux/cinema-de-noirgoutte/"
+        },
         
         // Exemple de projection à ajouter :
         // {
@@ -65,7 +73,7 @@ const projectionsData = {
             lieu: "Bar associatif L'éléphant Rose",
             ville: "Pont-Scorff",
             date: "20/09/2026",
-            horaire: "[Horaire à définir]",
+            horaire: "18h00",
             lien: "https://www.helloasso.com/associations/l-elephant-rose"
         },
                {
