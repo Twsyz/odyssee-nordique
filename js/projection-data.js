@@ -51,6 +51,14 @@ const projectionsData = {
         },
         {
             region: "grand-est",
+            lieu: "Festival Du bout de la rue au bout du monde",
+            ville: "Colmar",
+            date: "03/10/2026",
+            horaire: "20:30",
+            lien: "https://www.duboutdelarueauboutdumonde.fr/programmation-2026/"
+        },
+        {
+            region: "grand-est",
             lieu: "Cinéma de Noiregoutte",
             ville: "Plainfaing",
             date: "25/10/2026",
@@ -68,22 +76,6 @@ const projectionsData = {
         //     lien: "https://family-cinema.com/"
         // },  
     
-           {
-            region: "bretagne",
-            lieu: "Bar associatif L'éléphant Rose",
-            ville: "Pont-Scorff",
-            date: "20/09/2026",
-            horaire: "18h00",
-            lien: "https://www.helloasso.com/associations/l-elephant-rose"
-        },
-               {
-            region: "bretagne",
-            lieu: " Cinéma municipal La Bobine",
-            ville: "Quimperlé",
-            date: "21/09/2026",
-            horaire: "20:30",
-            lien: "https://www.quimperle.bzh/vivre-a-quimperle/culture/le-cinema/"
-        },
         {
             region: "bretagne",
             lieu: "Cinéma Saint-Michel",
@@ -102,14 +94,6 @@ const projectionsData = {
             lien: "https://lorient.cineville.fr/programmes/lorient"
         },
         
-            {
-            region: "auvergne",
-            lieu: "Cinéma Espace Renoir",
-            ville: "Roanne",
-            date: "18/09/2026",
-            horaire: "20:30",
-            lien: "https://www.cinemaespacerenoir.fr/events/77574-cine-echanges-lodyssee-nordique-reprendre-la-route/"
-        }, 
         {
             region: "auvergne",
             lieu: "Foyer Cinéma",
@@ -202,7 +186,23 @@ const projectionsData = {
             lieu: "Centre Culturel Les Arcs",
             ville: "Quéven / Morbihan (56)",
             date: "16/09/2026"
+        },  
+        {
+            lieu: "Cinéma Espace Renoir",
+            ville: "Roanne / Loire (42)",
+            date: "18/09/2026"
+        },
+         {
+            lieu: "Bar associatif L'éléphant Rose",
+            ville: "Pont-Scorff/ Morbihan (56)",
+            date: "20/09/2026"
+        },
+             {
+            lieu: "Cinéma La Bobine",
+            ville: "Quimperlé/ Finistère (29)",
+            date: "20/09/2026"
         }
+        
         
     //     {
     //         lieu: "Cinéma Le Trianon",
