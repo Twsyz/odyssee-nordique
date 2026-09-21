@@ -200,7 +200,7 @@ const projectionsData = {
              {
             lieu: "Cinéma La Bobine",
             ville: "Quimperlé / Finistère (29)",
-            date: "20/09/2026"
+            date: "21/09/2026"
         }
         
         
