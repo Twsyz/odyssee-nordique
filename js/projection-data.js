@@ -194,12 +194,12 @@ const projectionsData = {
         },
          {
             lieu: "Bar associatif L'éléphant Rose",
-            ville: "Pont-Scorff/ Morbihan (56)",
+            ville: "Pont-Scorff / Morbihan (56)",
             date: "20/09/2026"
         },
              {
             lieu: "Cinéma La Bobine",
-            ville: "Quimperlé/ Finistère (29)",
+            ville: "Quimperlé / Finistère (29)",
             date: "20/09/2026"
         }
         
