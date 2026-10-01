@@ -30,7 +30,7 @@ const projectionsData = {
             lieu: "Festival La Roue Tourne",
             ville: "Roques",
             date: "Du 26 au 28 février 2027",
-            horaire: "A définir",
+            horaire: "Horaire à définir",
             lien: "https://www.festival-larouetourne.org/"
         },  
         
