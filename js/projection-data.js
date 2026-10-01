@@ -24,16 +24,17 @@
 
 const projectionsData = {
     // Projections à venir
-    upcoming: [
-{
-            region: "pays-de-la-loire",
-            lieu: "Salle de convivialité - Tribune Henri Michel / Tribune Emilio Sala",
-            ville: "Basse-Goulaine",
-            date: "25/09/2026",
-            horaire: "19:00",
-            lien: "https://www.asso-gne.fr/"
-        },  
+    upcoming: [  
          {
+            region: "occitanie",
+            lieu: "Festival La Roue Tourne",
+            ville: "Roques",
+            date: "Du 26 au 28 février 2027",
+            horaire: "A définir",
+            lien: "https://www.festival-larouetourne.org/"
+        },  
+        
+        {
             region: "pays-de-la-loire",
             lieu: "Cinéville Savenay",
             ville: "Savenay",
@@ -75,15 +76,6 @@ const projectionsData = {
         //     horaire: "20:00",
         //     lien: "https://family-cinema.com/"
         // },  
-    
-        {
-            region: "bretagne",
-            lieu: "Cinéma Saint-Michel",
-            ville: "Liffré",
-            date: "22/09/2026",
-            horaire: "20:00",
-            lien: "https://www.cinema-liffre.com/"
-        },
         
         {
             region: "bretagne",
@@ -96,27 +88,27 @@ const projectionsData = {
         
         {
             region: "auvergne",
-            lieu: "Foyer Cinéma",
-            ville: "Saint Symphorien sur Coise",
-            date: "25/09/2026",
-            horaire: "20:30",
-            lien: "https://foyercinema.fr/"
-        },
-        {
-            region: "auvergne",
-            lieu: "Foyer des jeunes Le Consulat",
-            ville: "Le Puy-en-Velay",
-            date: "10/10/2026",
-            horaire: "18:00",
-            lien: "https://lapuycyclette.fr/"
-        },
-        {
-            region: "auvergne",
             lieu: "Cinéma Le Foyer",
             ville: "Bourg-Argental",
             date: "11/10/2026",
             horaire: "17:30",
             lien: "https://cinelefoyer.com/"
+        },
+            {
+            region: "auvergne",
+            lieu: "Cinéma Le Club",
+            ville: "Grenoble",
+            date: "14/10/2026",
+            horaire: "20:15",
+            lien: "https://www.cinemaleclub.com/accueil.html"
+        },
+            {
+            region: "auvergne",
+            lieu: "Foyer des jeunes Le Consulat",
+            ville: "Le Puy-en-Velay",
+            date: "31/10/2026",
+            horaire: "17:30",
+            lien: "https://lapuycyclette.fr/"
         },
             {
             region: "auvergne",
@@ -201,6 +193,21 @@ const projectionsData = {
             lieu: "Cinéma La Bobine",
             ville: "Quimperlé / Finistère (29)",
             date: "21/09/2026"
+        },
+             {
+            lieu: "Cinéma Saint-Michel",
+            ville: "Liffré / Ille-et-Vilaine (35)",
+            date: "22/09/2026"
+        },
+             {
+            lieu: "Salle de convivialité - Tribune Henri Michel",
+            ville: "Basse-Goulaine / Loire-Atlantique (44)",
+            date: "25/09/2026"
+        },
+             {
+            lieu: "Foyer Cinéma",
+            ville: "Saint Symphorien sur Coise / Rhône (69)",
+            date: "25/09/2026"
         }
         
         
