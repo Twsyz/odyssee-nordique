@@ -85,6 +85,15 @@ const projectionsData = {
             horaire: "20:30",
             lien: "https://lorient.cineville.fr/programmes/lorient"
         },
+         {
+            region: "bretagne",
+            lieu: "Cinéma Ti Hanok",
+            ville: "Auray",
+            date: "04/12/2026",
+            horaire: "20:30",
+            lien: "https://cinematihanok.bzh/Evenement/1071/lodyssee-nordique-reprendre-la-route"
+        },
+        
         
         {
             region: "auvergne",
