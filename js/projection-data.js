@@ -52,14 +52,6 @@ const projectionsData = {
         },
         {
             region: "grand-est",
-            lieu: "Festival Du bout de la rue au bout du monde",
-            ville: "Colmar",
-            date: "03/10/2026",
-            horaire: "20:30",
-            lien: "https://www.duboutdelarueauboutdumonde.fr/programmation-2026/"
-        },
-        {
-            region: "grand-est",
             lieu: "Cinéma de Noiregoutte",
             ville: "Plainfaing",
             date: "25/10/2026",
@@ -217,6 +209,11 @@ const projectionsData = {
             lieu: "Foyer Cinéma",
             ville: "Saint Symphorien sur Coise / Rhône (69)",
             date: "25/09/2026"
+        },
+             {
+            lieu: "Festival Du bout de la rue au bout du monde",
+            ville: "Colmar / Haut-Rhin (68)",
+            date: "03/10/2026"
         }
         
         
