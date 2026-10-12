@@ -30,7 +30,7 @@ const projectionsData = {
             lieu: "Festival La Roue Tourne",
             ville: "Roques",
             date: "Du 26 au 28 février 2027",
-            horaire: "Horaire à définir",
+            horaire: "[Horaire à définir]",
             lien: "https://www.festival-larouetourne.org/"
         },  
         
@@ -41,6 +41,14 @@ const projectionsData = {
             date: "19/11/2026",
             horaire: "18:30",
             lien: "https://www.mediatheques.estuaire-sillon.fr/"
+        },  
+        {
+            region: "pays-de-la-loire",
+            lieu: "Festival Envie de Demain - Cinéma Vaillant",
+            ville: "Vertou",
+            date: "du 10 ou 14/03/2027",
+            horaire: "[Horaire à définir]",
+            lien: "https://www.icipourdemain.fr/fr/festival-envie-de-demain"
         },  
         {
             region: "bourgogne",
@@ -86,15 +94,6 @@ const projectionsData = {
             lien: "https://cinematihanok.bzh/Evenement/1071/lodyssee-nordique-reprendre-la-route"
         },
         
-        
-        {
-            region: "auvergne",
-            lieu: "Cinéma Le Foyer",
-            ville: "Bourg-Argental",
-            date: "11/10/2026",
-            horaire: "17:30",
-            lien: "https://cinelefoyer.com/"
-        },
             {
             region: "auvergne",
             lieu: "Cinéma Le Club",
@@ -207,13 +206,18 @@ const projectionsData = {
         },
              {
             lieu: "Foyer Cinéma",
-            ville: "Saint Symphorien sur Coise / Rhône (69)",
+            ville: "Saint-Symphorien-sur-Coise / Rhône (69)",
             date: "25/09/2026"
         },
              {
             lieu: "Festival Du bout de la rue au bout du monde",
             ville: "Colmar / Haut-Rhin (68)",
             date: "03/10/2026"
+        },
+        {
+            lieu: "Cinéma Le Foyer",
+            ville: "Bourg-Argental / Loire (42)",
+            date: "11/10/2026"
         }
         
         
