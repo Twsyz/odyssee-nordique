@@ -46,7 +46,7 @@ const projectionsData = {
             region: "pays-de-la-loire",
             lieu: "Festival Envie de Demain - Cinéma Vaillant",
             ville: "Vertou",
-            date: "du 10 ou 14/03/2027",
+            date: "du 10 au 14/03/2027",
             horaire: "[Horaire à définir]",
             lien: "https://www.icipourdemain.fr/fr/festival-envie-de-demain"
         },  
@@ -96,14 +96,6 @@ const projectionsData = {
         
             {
             region: "auvergne",
-            lieu: "Cinéma Le Club",
-            ville: "Grenoble",
-            date: "14/10/2026",
-            horaire: "20:15",
-            lien: "https://www.cinemaleclub.com/accueil.html"
-        },
-            {
-            region: "auvergne",
             lieu: "Foyer des jeunes Le Consulat",
             ville: "Le Puy-en-Velay",
             date: "31/10/2026",
@@ -114,7 +106,7 @@ const projectionsData = {
             region: "auvergne",
             lieu: "Vél'Osons Festival",
             ville: "Chambéry",
-            date: "du 02 ou 04/04/2027",
+            date: "du 02 au 04/04/2027",
             horaire: "[Horaire à définir]",
             lien: "https://velosons.rouelibre.net/"
         }
@@ -218,6 +210,11 @@ const projectionsData = {
             lieu: "Cinéma Le Foyer",
             ville: "Bourg-Argental / Loire (42)",
             date: "11/10/2026"
+        }, 
+        {
+            lieu: "Cinéma Le Club",
+            ville: "Grenoble / Isère (38)",
+            date: "14/10/2026"
         }
         
         
