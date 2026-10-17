@@ -60,6 +60,14 @@ const projectionsData = {
         },
         {
             region: "grand-est",
+            lieu: "Cinéma Concorde",
+            ville: "Pont-à-Mousson",
+            date: "23/10/2026",
+            horaire: "19:00",
+            lien: "https://cinema-concorde-pam.fr/FR/9/cinema-concorde-pont-a-mousson.html"
+        },
+        {
+            region: "grand-est",
             lieu: "Cinéma de Noiregoutte",
             ville: "Plainfaing",
             date: "25/10/2026",
