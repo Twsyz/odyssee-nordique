@@ -58,22 +58,6 @@ const projectionsData = {
             horaire: "10:00",
             lien: "https://www.periplesetcie.com/"
         },
-        {
-            region: "grand-est",
-            lieu: "Cinéma Concorde",
-            ville: "Pont-à-Mousson",
-            date: "23/10/2026",
-            horaire: "19:00",
-            lien: "https://cinema-concorde-pam.fr/FR/9/cinema-concorde-pont-a-mousson.html"
-        },
-        {
-            region: "grand-est",
-            lieu: "Cinéma de Noiregoutte",
-            ville: "Plainfaing",
-            date: "25/10/2026",
-            horaire: "15:00",
-            lien: "https://culturecnous.vosges.fr/lieux/cinema-de-noirgoutte/"
-        },
         
         // Exemple de projection à ajouter :
         // {
@@ -109,6 +93,14 @@ const projectionsData = {
             date: "31/10/2026",
             horaire: "17:30",
             lien: "https://lapuycyclette.fr/"
+        },
+        {
+            region: "auvergne",
+            lieu: "Cinéma Le Colisée",
+            ville: "Saint-Galmier",
+            date: "12/12/2026",
+            horaire: "17:30",
+            lien: "https://www.lecolisee-saint-galmier.fr/#/"
         },
             {
             region: "auvergne",
@@ -172,7 +164,7 @@ const projectionsData = {
         {
             lieu: "Cinéma Concorde",
             ville: "Pont-à-Mousson / Meurthe et Moselle (54)",
-            date: "09/09/2026"
+            date: "09/09/2026 et 23/10/2026"
         },
         {
             lieu: "Centre Culturel Les Arcs",
@@ -223,8 +215,12 @@ const projectionsData = {
             lieu: "Cinéma Le Club",
             ville: "Grenoble / Isère (38)",
             date: "14/10/2026"
+        },
+         {
+            lieu: "Cinéma de Noiregoutte",
+            ville: "Plainfaing / Vosges (88)",
+            date: "25/10/2026"
         }
-        
         
     //     {
     //         lieu: "Cinéma Le Trianon",
