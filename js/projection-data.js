@@ -109,7 +109,7 @@ const projectionsData = {
             date: "du 19 au 21/03/2027",
             horaire: "[Horaire à définir]",
             lien: "https://www.curieuxvoyageurs.com/"
-        }
+        },
             {
             region: "auvergne",
             lieu: "Vél'Osons Festival",
