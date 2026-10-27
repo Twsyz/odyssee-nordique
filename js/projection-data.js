@@ -102,6 +102,14 @@ const projectionsData = {
             horaire: "17:30",
             lien: "https://www.lecolisee-saint-galmier.fr/#/"
         },
+         {
+            region: "auvergne",
+            lieu: "Festival Curieux Voyageurs",
+            ville: "Saint-Etienne",
+            date: "du 19 au 21/03/2027",
+            horaire: "[Horaire à définir]",
+            lien: "https://www.curieuxvoyageurs.com/"
+        }
             {
             region: "auvergne",
             lieu: "Vél'Osons Festival",
