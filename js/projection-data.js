@@ -85,15 +85,6 @@ const projectionsData = {
             horaire: "20:30",
             lien: "https://cinematihanok.bzh/Evenement/1071/lodyssee-nordique-reprendre-la-route"
         },
-        
-            {
-            region: "auvergne",
-            lieu: "Foyer des jeunes Le Consulat",
-            ville: "Le Puy-en-Velay",
-            date: "31/10/2026",
-            horaire: "17:30",
-            lien: "https://lapuycyclette.fr/"
-        },
         {
             region: "auvergne",
             lieu: "Cinéma Le Colisée",
@@ -228,8 +219,12 @@ const projectionsData = {
             lieu: "Cinéma de Noiregoutte",
             ville: "Plainfaing / Vosges (88)",
             date: "25/10/2026"
+        },
+        {
+            lieu: "Foyer des jeunes Le Consulat",
+            ville: "Le Puy-en-Velay / Haute-Loire (43)",
+            date: "31/10/2026"
         }
-        
     //     {
     //         lieu: "Cinéma Le Trianon",
     //         ville: "Brest",
