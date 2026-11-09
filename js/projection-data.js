@@ -69,14 +69,6 @@ const projectionsData = {
         //     lien: "https://family-cinema.com/"
         // },  
         
-        {
-            region: "bretagne",
-            lieu: "Cinéville",
-            ville: "Lorient",
-            date: "05/11/2026",
-            horaire: "20:30",
-            lien: "https://lorient.cineville.fr/programmes/lorient"
-        },
          {
             region: "bretagne",
             lieu: "Cinéma Ti Hanok",
@@ -224,12 +216,13 @@ const projectionsData = {
             lieu: "Foyer des jeunes Le Consulat",
             ville: "Le Puy-en-Velay / Haute-Loire (43)",
             date: "31/10/2026"
+        },
+         {
+            lieu: "Cinéville",
+            ville: "Lorient / Morbihan (56)",
+            date: "05/11/2026"
         }
-    //     {
-    //         lieu: "Cinéma Le Trianon",
-    //         ville: "Brest",
-    //         date: "11/01/2025"
-    //     }
+    
     // PAS DE VIRGULE AU DERNIER
         
     ]
