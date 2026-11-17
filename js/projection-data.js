@@ -50,14 +50,6 @@ const projectionsData = {
             horaire: "[Horaire à définir]",
             lien: "https://www.icipourdemain.fr/fr/festival-envie-de-demain"
         },  
-        {
-            region: "bourgogne",
-            lieu: "Festival Périples & Cie",
-            ville: "Charnay-Lès-Mâcon",
-            date: "15/11/2026",
-            horaire: "10:00",
-            lien: "https://www.periplesetcie.com/"
-        },
         
         // Exemple de projection à ajouter :
         // {
@@ -84,6 +76,14 @@ const projectionsData = {
             date: "12/12/2026",
             horaire: "17:30",
             lien: "https://www.lecolisee-saint-galmier.fr/#/"
+        },
+         {
+            region: "auvergne",
+            lieu: "Cinéma Le Zola",
+            ville: "Villeurbanne",
+            date: "11/01/2027",
+            horaire: "20:15",
+            lien: "https://www.lezola.com/"
         },
          {
             region: "auvergne",
@@ -221,6 +221,11 @@ const projectionsData = {
             lieu: "Cinéville",
             ville: "Lorient / Morbihan (56)",
             date: "05/11/2026"
+        },
+        {
+            lieu: "Festival Périple & Cie",
+            ville: "Charnay-lès-Mâcon / Saône-et-Loire (71)",
+            date: "15/11/2026"
         }
     
     // PAS DE VIRGULE AU DERNIER
