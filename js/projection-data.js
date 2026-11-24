@@ -36,18 +36,10 @@ const projectionsData = {
         
         {
             region: "pays-de-la-loire",
-            lieu: "Cinéville Savenay",
-            ville: "Savenay",
-            date: "19/11/2026",
-            horaire: "18:30",
-            lien: "https://www.mediatheques.estuaire-sillon.fr/"
-        },  
-        {
-            region: "pays-de-la-loire",
             lieu: "Festival Envie de Demain - Cinéma Vaillant",
             ville: "Vertou",
-            date: "du 10 au 14/03/2027",
-            horaire: "[Horaire à définir]",
+            date: "13/03/2027",
+            horaire: "17:00",
             lien: "https://www.icipourdemain.fr/fr/festival-envie-de-demain"
         },  
         
@@ -68,6 +60,14 @@ const projectionsData = {
             date: "04/12/2026",
             horaire: "20:30",
             lien: "https://cinematihanok.bzh/Evenement/1071/lodyssee-nordique-reprendre-la-route"
+        },
+                {
+            region: "bretagne",
+            lieu: "Cinéma Arvor",
+            ville: "Rennes",
+            date: "11/02/2026",
+            horaire: "19:15",
+            lien: "https://www.cinema-arvor.fr/"
         },
         {
             region: "auvergne",
@@ -226,6 +226,11 @@ const projectionsData = {
             lieu: "Festival Périple & Cie",
             ville: "Charnay-lès-Mâcon / Saône-et-Loire (71)",
             date: "15/11/2026"
+        },
+                {
+            lieu: "Cinéville Savenay",
+            ville: "Savenay / Loire-Atlantique (44)",
+            date: "19/11/2026"
         }
     
     // PAS DE VIRGULE AU DERNIER
